@@ -38,7 +38,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Configure AWS credentials from Test account
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           role-to-assume: arn:aws:iam::${{ secrets.GH_ACTION_ROLE_ARN_ID }}:role/githubActions
@@ -47,13 +47,7 @@ jobs:
       - name: Copy files to the test website with the AWS CLI
         if: github.ref == 'refs/heads/development'
         run: |
-          aws s3 sync . s3://my-s3-test-website-bucket
-
-      - name: Configure AWS credentials from Test account
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          role-to-assume: arn:aws:iam::${{ secrets.GH_ACTION_ROLE_ARN_ID }}:role/githubActions
-          aws-region: us-west-2
+          aws s3 sync . s3://my-s3-dev-website-bucket
 
       - name: Copy files to the production website with the AWS CLI
         if: github.ref == 'refs/heads/main'
