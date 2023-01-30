@@ -1,7 +1,7 @@
 name: Deploy React App to AWS S3
 
 env:
-  BUILD_NAME: portfolio-build
+  AWS_REGION: us-west-2
 
 on:
   push:
@@ -32,8 +32,8 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@master
         with:
-          name: $BUILD_NAME
-          path: ./build
+          name: build
+          path: build
 
   deploy:
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
@@ -55,22 +55,25 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@master
         with:
-          name: $BUILD_NAME
-          path: ./build
+          name: build
+          path: build
           
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           role-to-assume: ${{ secrets.GH_ACTIONS_ARN }}
           role-duration-seconds: 900 # the ttl of the session, in seconds.
-          aws-region: us-west-2 # use your region here.
+          aws-region: $AWS_REGION # use your region here.
 
       - name: Copy files to the dev website with the AWS CLI
         if: github.ref == 'refs/heads/development'
         run: |
+          aws s3api create-bucket --bucket s3://my-s3-dev-website-bucket --create-bucket-configuration LocationConstraint=$AWS_REGION || true
           aws s3 sync build s3://my-s3-dev-website-bucket --delete
+          
 
       - name: Copy files to the production website with the AWS CLI
         if: github.ref == 'refs/heads/main'
         run: |
+          aws s3api create-bucket --bucket s3://my-s3-prod-website-bucket --create-bucket-configuration LocationConstraint=$AWS_REGION || true
           aws s3 sync build s3://my-s3-prod-website-bucket --delete
