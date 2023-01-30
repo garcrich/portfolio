@@ -44,13 +44,6 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.GH_ACTION_ROLE_ARN_ID }}:role/githubActions
           aws-region: us-west-2
 
-      - name: Manual approval for main branch
-        id: approve
-        uses: actions/manual-approvals@v1
-        if: github.ref == 'refs/heads/main'
-        with:
-          approvals: 1
-
       - name: Copy files to the test website with the AWS CLI
         if: github.ref == 'refs/heads/development'
         run: |
