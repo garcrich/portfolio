@@ -68,9 +68,9 @@ jobs:
       - name: Copy files to the dev website with the AWS CLI
         if: github.ref == 'refs/heads/development'
         run: |
-          aws s3 sync $BUILD_NAME s3://my-s3-dev-website-bucket --delete
+          aws s3 sync build s3://my-s3-dev-website-bucket --delete
 
       - name: Copy files to the production website with the AWS CLI
         if: github.ref == 'refs/heads/main'
         run: |
-          aws s3 sync $BUILD_NAME s3://my-s3-prod-website-bucket --delete
+          aws s3 sync build s3://my-s3-prod-website-bucket --delete
