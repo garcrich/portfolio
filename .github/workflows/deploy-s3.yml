@@ -10,8 +10,8 @@ on:
       - development
 
 jobs:
-  build:
-    name: Build Application
+  test:
+    name: Test the application
     runs-on: ubuntu-latest
 
     steps:
@@ -29,14 +29,20 @@ jobs:
       - name: Run tests 
         run: npm test
 
-      - name: Build the React app
-        run: npm run build
+  build:
+      name: Build the React app
+      runs-on: ubuntu-latest
+      needs: test
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: build
-          path: build
+      steps:
+        - name: build
+          run: npm run build
+
+        - name: Upload Artifact
+          uses: actions/upload-artifact@master
+          with:
+            name: build
+            path: build
 
   deploy:
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
@@ -49,8 +55,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: List all artifacts
-        run: ls
 
       - name: Checkout
         uses: actions/checkout@v2
