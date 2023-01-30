@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: $BUILD_NAME
-          path: $BUILD_NAME
+          path: ./build
 
   deploy:
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
@@ -56,7 +56,7 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: $BUILD_NAME
-          path: $BUILD_NAME
+          path: ./build
           
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
