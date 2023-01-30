@@ -41,16 +41,16 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
-          role-to-assume: ${{ GH_ACTIONS_ARN }}
+          role-to-assume: ${{ secrets.GH_ACTIONS_ARN }}
           role-duration-seconds: 900 # the ttl of the session, in seconds.
           aws-region: us-west-2 # use your region here.
 
       - name: Copy files to the dev website with the AWS CLI
         if: github.ref == 'refs/heads/development'
         run: |
-          aws s3 sync . s3://my-s3-dev-website-bucket
+          aws s3 sync ./build s3://my-s3-dev-website-bucket --delete
 
       - name: Copy files to the production website with the AWS CLI
         if: github.ref == 'refs/heads/main'
         run: |
-          aws s3 sync . s3://my-s3-prod-website-bucket
+          aws s3 sync ./build s3://my-s3-prod-website-bucket --delete
