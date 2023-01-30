@@ -31,20 +31,21 @@ jobs:
     runs-on: ubuntu-latest
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     permissions:
-      id-token: write
-      contents: read
+      id-token: write # required to use OIDC authentication
+      contents: read # required to checkout the code from the repo  
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v1-node16
         with:
-          role-to-assume: arn:aws:iam::${{ secrets.GH_ACTION_ROLE_ARN_ID }}:role/githubActions
-          aws-region: us-west-2
+          role-to-assume: ${{ GH_ACTIONS_ARN }}
+          role-duration-seconds: 900 # the ttl of the session, in seconds.
+          aws-region: us-west-2 # use your region here.
 
-      - name: Copy files to the test website with the AWS CLI
+      - name: Copy files to the dev website with the AWS CLI
         if: github.ref == 'refs/heads/development'
         run: |
           aws s3 sync . s3://my-s3-dev-website-bucket
