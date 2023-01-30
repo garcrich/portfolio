@@ -1,5 +1,8 @@
 name: Deploy React App to AWS S3
 
+env:
+  BUILD_NAME: portfolio-build
+
 on:
   push:
     branches:
@@ -29,8 +32,8 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@master
         with:
-          name: build
-          path: build
+          name: $BUILD_NAME
+          path: $BUILD_NAME
 
   deploy:
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
@@ -43,11 +46,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@master
-        with:
-          name: build
-          path: build
 
       - name: Checkout
         uses: actions/checkout@v2
@@ -55,8 +53,8 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@master
         with:
-          name: build
-          path: build
+          name: $BUILD_NAME
+          path: $BUILD_NAME
           
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
