@@ -26,6 +26,11 @@ jobs:
       - name: Build the React app
         run: npm run build
 
+      - name: Upload Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: build
+          path: build
 
   deploy:
     # These permissions are needed to interact with GitHub's OIDC Token endpoint.
@@ -33,12 +38,26 @@ jobs:
       id-token: write # required to use OIDC authentication
       contents: read # required to checkout the code from the repo  
     name: Upload to Amazon S3
+    
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: build
+          path: build
+
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Download Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: build
+          path: build
+          
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
