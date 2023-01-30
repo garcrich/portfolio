@@ -5,15 +5,9 @@ on:
     branches:
       - main
       - development
-  
 
 jobs:
-  build-and-deploy:
-
-    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
-    permissions:
-      id-token: write # required to use OIDC authentication
-      contents: read # required to checkout the code from the repo  
+  build:
     name: Build Application
     runs-on: ubuntu-latest
 
@@ -32,6 +26,16 @@ jobs:
       - name: Build the React app
         run: npm run build
 
+
+  deploy:
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write # required to use OIDC authentication
+      contents: read # required to checkout the code from the repo  
+    name: Upload to Amazon S3
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -45,9 +49,9 @@ jobs:
       - name: Copy files to the dev website with the AWS CLI
         if: github.ref == 'refs/heads/development'
         run: |
-          aws s3 sync ./build s3://my-s3-dev-website-bucket --delete
+          aws s3 sync portfolio/build s3://my-s3-dev-website-bucket --delete
 
       - name: Copy files to the production website with the AWS CLI
         if: github.ref == 'refs/heads/main'
         run: |
-          aws s3 sync ./build s3://my-s3-prod-website-bucket --delete
+          aws s3 sync portfolio/build s3://my-s3-prod-website-bucket --delete
