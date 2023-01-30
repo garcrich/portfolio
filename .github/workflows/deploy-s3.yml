@@ -5,9 +5,15 @@ on:
     branches:
       - main
       - development
+  
 
 jobs:
-  build:
+  build-and-deploy:
+
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write # required to use OIDC authentication
+      contents: read # required to checkout the code from the repo  
     name: Build Application
     runs-on: ubuntu-latest
 
@@ -26,15 +32,6 @@ jobs:
       - name: Build the React app
         run: npm run build
 
-  deploy:
-    name: Upload to Amazon S3
-    runs-on: ubuntu-latest
-    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
-    permissions:
-      id-token: write # required to use OIDC authentication
-      contents: read # required to checkout the code from the repo  
-
-    steps:
       - name: Checkout
         uses: actions/checkout@v2
 
