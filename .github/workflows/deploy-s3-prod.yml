@@ -46,7 +46,6 @@ jobs:
         aws-region: us-west-2
 
     - name: Deploy to Dev S3 with IAM Role
-      uses: aws-actions/aws-cli@v1
       env:
         AWS_REGION: us-west-2
       if: github.ref == 'refs/heads/development'
@@ -54,7 +53,6 @@ jobs:
         aws s3 sync build s3://my-s3-dev-portfolio-bucket --delete
 
     - name: Configure AWS credentials from Production account
-      uses: aws-actions/configure-aws-credentials@v1
       with:
         role-to-assume: arn:aws:iam::${{ secrets.GH_ACTION_ROLE_ARN_ID }}:role/githubActions
         aws-region: us-west-2
