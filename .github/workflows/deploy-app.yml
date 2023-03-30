@@ -58,14 +58,11 @@ jobs:
           name: build
           path: build
 
-      - name: Log out build artifact
-        run: ls -R build
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
           role-to-assume: arn:aws:iam::195789042358:role/GitHubActions
-          role-duration-seconds: 900
+          role-duration-seconds: 1800
           aws-region: ${{ env.AWS_REGION }}
 
       - name: Deploy the CloudFormation stack and S3 bucket
@@ -91,11 +88,12 @@ jobs:
           # Sync the build directory to the S3 bucket
           aws s3 sync build/ s3://${DEPLOY_NAME} --delete
 
+          # TODO: Generate pre-signed URL for the development environment
           # Generate pre-signed URL for the development environment
-          if [[ "${{ github.ref }}" == "refs/heads/development" ]]; then
-            presigned_url=$(aws s3 presign s3://${DEPLOY_NAME}/index.html --expires-in 7200)
-            echo "Pre-signed URL: ${presigned_url}"
-          fi
+          # if [[ "${{ github.ref }}" == "refs/heads/development" ]]; then
+          #   presigned_url=$(aws s3 presign s3://${DEPLOY_NAME}/index.html --expires-in 1800)
+          #   echo "Pre-signed URL: ${presigned_url}"
+          # fi
 
           # Print Website URL for production environment
           if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
