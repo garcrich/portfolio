@@ -80,7 +80,7 @@ jobs:
           # Create or update the CloudFormation stack
           aws cloudformation deploy \
             --stack-name "${DEPLOY_NAME}" \
-            --template-file ".cloudformation/${TEMPLATE_NAME}" \
+            --template-file ""${{ github.workspace }}/.cloudformation/${TEMPLATE_NAME}" \
             --parameter-overrides BucketName="${DEPLOY_NAME}" \
             --no-fail-on-empty-changeset \
             --region "${AWS_REGION}"
