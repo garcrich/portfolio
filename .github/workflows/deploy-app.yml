@@ -70,10 +70,10 @@ jobs:
         run: |
           if [ "${{ github.ref }}" == "refs/heads/development" ]; then
             STACK_NAME="dev-${{ env.SITE_SUFFIX }}"
-            TEMPLATE_FILE="${{ github.workspace }}/cloudformation/dev-stack.yml"
+            TEMPLATE_FILE="${{ github.workspace }}/.cloudformation/dev-stack.yml"
           else
             STACK_NAME="prod-${{ env.SITE_SUFFIX }}"
-            TEMPLATE_FILE="${{ github.workspace }}/cloudformation/prod-stack.yml"
+            TEMPLATE_FILE="${{ github.workspace }}/.cloudformation/prod-stack.yml"
           fi
       
           aws cloudformation deploy \
