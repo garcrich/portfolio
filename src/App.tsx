@@ -8,16 +8,9 @@ function App() {
       <header className={styles['App-header']}>
         <img src={logo} className={styles["App-logo"]} alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Your mic sounds really good right now Cardbordbot! 👍🏾
         </p>
-        <a
-          className={styles["App-link"]}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>I'm basically 95% done with my website... hahaha *sob*🤣</p>
       </header>
     </div>
   );
