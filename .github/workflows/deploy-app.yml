@@ -2,7 +2,8 @@ name: Deploy React App to AWS S3
 
 env:
   AWS_REGION: us-west-2
-  SITE_SUFFIX: rg-portfolio-site-v1
+  SITE_SUFFIX: rg-professional-portfolio-site-v1
+
 on:
   push:
     branches:
@@ -29,7 +30,7 @@ jobs:
 
       - name: unit tests
         run: npm test
-          
+
       - name: build
         run: npm run build
 
@@ -40,17 +41,15 @@ jobs:
           path: build
 
   deploy:
-    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
     permissions:
-      id-token: write # required to use OIDC authentication
-      contents: read # required to checkout the code from the repo  
+      id-token: write
+      contents: read
+
     name: Upload to Amazon S3
-    
     needs: build
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -59,23 +58,32 @@ jobs:
         with:
           name: build
           path: build
-          
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
-          role-to-assume: ${{ secrets.GH_ACTIONS_ARN }}
-          role-duration-seconds: 900 # the ttl of the session, in seconds.
-          aws-region: ${{ env.AWS_REGION }} # use your region here.
+          role-to-assume: arn:aws:iam::195789042358:role/GitHubActions
+          role-duration-seconds: 900
+          aws-region: us-west-1
 
-      - name: Copy files to the dev website with the AWS CLI
-        if: github.ref == 'refs/heads/development'
+      - name: Deploy the CloudFormation stack
         run: |
-          aws s3api create-bucket --bucket dev-${{ env.SITE_SUFFIX }} --create-bucket-configuration LocationConstraint=$AWS_REGION || true
-          aws s3 sync build s3://dev-${{ env.SITE_SUFFIX }} --delete
-          
+          if [ ${{ github.ref }} == 'refs/heads/development' ]; then
+            STACK_NAME="dev-${{ env.SITE_SUFFIX }}"
+            TEMPLATE_FILE="dev-stack.yml"
+          else
+            STACK_NAME="prod-${{ env.SITE_SUFFIX }}"
+            TEMPLATE_FILE="prod-stack.yml"
+          fi
 
-      - name: Copy files to the production website with the AWS CLI
-        if: github.ref == 'refs/heads/main'
+          aws cloudformation deploy \
+            --stack-name $STACK_NAME \
+            --template-file $TEMPLATE_FILE \
+            --parameter-overrides SiteSuffix=${{ env.SITE_SUFFIX }} \
+            --no-fail-on-empty-changeset
+
+      - name: Retrieve the S3 bucket name
+        id: get_bucket_name
         run: |
-          aws s3api create-bucket --bucket prod-${{ env.SITE_SUFFIX }} --create-bucket-configuration LocationConstraint=$AWS_REGION || true
-          aws s3 sync build s3://prod-${{ env.SITE_SUFFIX }} --delete
+          BUCKET_NAME=$(aws cloudformation describe-stacks --stack-name $STACK_NAME --query 'Stacks[0].Outputs[?OutputKey==`S3BucketName`].OutputValue' --output text)
+          echo "S3_BUCKET_NAME=$BUCKET_NAME" >> $GITHUB_ENV
