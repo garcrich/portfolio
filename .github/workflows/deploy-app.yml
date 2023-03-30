@@ -93,7 +93,7 @@ jobs:
 
           # Generate pre-signed URL for the development environment
           if [[ "${{ github.ref }}" == "refs/heads/development" ]]; then
-            presigned_url=$(aws s3 presign s3://${DEPLOY_NAME}/index.html --expires-in 7200S)
+            presigned_url=$(aws s3 presign s3://${DEPLOY_NAME}/index.html --expires-in 7200)
             echo "Pre-signed URL: ${presigned_url}"
           fi
 
