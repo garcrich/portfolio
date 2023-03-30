@@ -24,7 +24,7 @@ Resources:
             Action:
               - 's3:GetObject'
             Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
-            Principal: !Ref AWS::AccountId
+            Principal: '*'
 
 Outputs:
   S3BucketName:
