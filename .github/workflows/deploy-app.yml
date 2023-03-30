@@ -68,22 +68,30 @@ jobs:
           role-duration-seconds: 900
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Deploy the CloudFormation stack
+      - name: Deploy the CloudFormation stack and S3 bucket
         run: |
-          # Set DEPLOY_NAME based on the current branch
+
+          # Set DEPLOY_NAME and TEMPLATE_NAME based on the current branch
           if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
             DEPLOY_NAME=rg-portfolio-production
+            TEMPLATE_NAME=prod_stack.yml
           elif [[ "${{ github.ref }}" == "refs/heads/development" ]]; then
-          DEPLOY_NAME=rg-portfolio-development
+            DEPLOY_NAME=rg-portfolio-development
+            TEMPLATE_NAME=dev_stack.yml
           fi
 
           # Create or update the CloudFormation stack
           aws cloudformation deploy \
             --stack-name "${DEPLOY_NAME}" \
-            --template-file ./.cloudformation/website_bucket.yml \
-            --parameter-overrides BucketName="${DEPLOY_NAME}" \
+            --template-file ".cloudformation/${TEMPLATE_NAME}" \
             --no-fail-on-empty-changeset \
             --region "${AWS_REGION}"
 
           # Sync the build directory to the S3 bucket
           aws s3 sync build/ s3://${DEPLOY_NAME} --delete
+
+          # Generate pre-signed URL for the development environment
+          if [[ "${{ github.ref }}" == "refs/heads/development" ]]; then
+            presigned_url=$(aws s3 presign s3://${DEPLOY_NAME}/index.html --expires-in 43200)
+            echo "Pre-signed URL: ${presigned_url}"
+          fi

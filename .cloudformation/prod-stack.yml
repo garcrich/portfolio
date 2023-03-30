@@ -1,0 +1,30 @@
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: rg-portfolio-production
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: error.html
+
+  S3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - 's3:GetObject'
+            Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
+            Principal: '*'
+
+Outputs:
+  S3BucketName:
+    Description: 'The name of the S3 bucket'
+    Value: !Ref S3Bucket
+  WebsiteURL:
+    Description: 'The URL of the website'
+    Value: !GetAtt S3Bucket.WebsiteURL
