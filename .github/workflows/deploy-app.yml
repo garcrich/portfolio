@@ -80,7 +80,7 @@ jobs:
           # Create or update the CloudFormation stack
           aws cloudformation deploy \
             --stack-name "${DEPLOY_NAME}" \
-            --template-file website_bucket.yml \
+            --template-file ./.cloudformation/website_bucket.yml \
             --parameter-overrides BucketName="${DEPLOY_NAME}" \
             --no-fail-on-empty-changeset \
             --region "${AWS_REGION}"
