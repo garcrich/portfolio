@@ -70,30 +70,20 @@ jobs:
 
       - name: Deploy the CloudFormation stack
         run: |
+          # Set DEPLOY_NAME based on the current branch
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            DEPLOY_NAME=rg-portfolio-production
+          elif [[ "${{ github.ref }}" == "refs/heads/development" ]]; then
+          DEPLOY_NAME=rg-portfolio-development
+          fi
 
-          # Set the stack name and template file based on the branch name
-          if [ "${{ github.ref }}" == "refs/heads/development" ]; then
-            STACK_NAME="dev-rg-professional-portfolio-site-v1"
-            TEMPLATE_FILE="${{ github.workspace }}/.cloudformation/dev-stack.yml"
-          else
-            STACK_NAME="prod-rg-professional-portfolio-site-v1"
-            TEMPLATE_FILE="${{ github.workspace }}/.cloudformation/prod-stack.yml"
-          fi
-      
-          # Deploy the CloudFormation stack
+          # Create or update the CloudFormation stack
           aws cloudformation deploy \
-            --stack-name $STACK_NAME \
-            --template-file $TEMPLATE_FILE \
-            --parameter-overrides SiteSuffix=${{ env.STACK_NAME }} \
-            --no-fail-on-empty-changeset
-        
-          # Create the S3 bucket if it doesn't exist
-          if ! aws s3api head-bucket --bucket "${STACK_NAME}" 2>/dev/null; then
-            aws s3api create-bucket \
-              --bucket "${STACK_NAME}" \
-              --region "${AWS_REGION}" \
-              --create-bucket-configuration LocationConstraint="${AWS_REGION}"
-          fi
+            --stack-name "${DEPLOY_NAME}" \
+            --template-file website_bucket.yml \
+            --parameter-overrides BucketName="${DEPLOY_NAME}" \
+            --no-fail-on-empty-changeset \
+            --region "${AWS_REGION}"
 
           # Sync the build directory to the S3 bucket
-          aws s3 sync build/ s3://${STACK_NAME} --delete
+          aws s3 sync build/ s3://${DEPLOY_NAME} --delete
