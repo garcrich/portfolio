@@ -1,3 +1,10 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  SiteSuffix:
+    Description: Suffix for the S3 bucket name
+    Type: String
+
 Resources:
   S3Bucket:
     Type: "AWS::S3::Bucket"
@@ -10,7 +17,6 @@ Resources:
               SSEAlgorithm: AES256
       WebsiteConfiguration:
         IndexDocument: "index.html"
-        ErrorDocument: "404.html"
 
   S3BucketPolicy:
     Type: "AWS::S3::BucketPolicy"

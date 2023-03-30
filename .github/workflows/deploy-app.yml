@@ -82,8 +82,13 @@ jobs:
             --parameter-overrides SiteSuffix=${{ env.SITE_SUFFIX }} \
             --no-fail-on-empty-changeset
             
-      - name: Retrieve the S3 bucket name
-        id: get_bucket_name
+      # Add this step after the "Retrieve the S3 bucket name" step
+      - name: Check if S3 bucket exists and create it if not
         run: |
-          BUCKET_NAME=$(aws cloudformation describe-stacks --stack-name $STACK_NAME --query 'Stacks[0].Outputs[?OutputKey==`S3BucketName`].OutputValue' --output text)
-          echo "S3_BUCKET_NAME=$BUCKET_NAME" >> $GITHUB_ENV
+          if ! aws s3api head-bucket --bucket "${S3_BUCKET_NAME}" 2>/dev/null; then
+            aws s3api create-bucket --bucket "${S3_BUCKET_NAME}" --region "${AWS_REGION}" --create-bucket-configuration LocationConstraint="${AWS_REGION}"
+          fi
+
+      # Upload files to the S3 bucket
+      - name: Upload files to the S3 bucket
+        run: aws s3 sync build/ s3://${S3_BUCKET_NAME} --delete
