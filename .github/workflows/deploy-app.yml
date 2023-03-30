@@ -2,7 +2,6 @@ name: Deploy React App to AWS S3
 
 env:
   AWS_REGION: us-west-1
-  STACK_NAME: ""
 
 on:
   push:
@@ -59,13 +58,8 @@ jobs:
           name: build
           path: build
 
-      - name: Set STACK_NAME based on branch
-        run: |
-          if [ "${{ github.ref }}" == "refs/heads/development" ]; then
-            echo "::set-env name=STACK_NAME::dev-rg-professional-portfolio-site-v1"
-          else
-            echo "::set-env name=STACK_NAME::prod-rg-professional-portfolio-site-v1"
-          fi
+      - name: Log out build artifact
+        run: ls -R build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
@@ -76,10 +70,13 @@ jobs:
 
       - name: Deploy the CloudFormation stack
         run: |
-          STACK_NAME="dev-rg-professional-portfolio-site-v1"
+
+          # Set the stack name and template file based on the branch name
           if [ "${{ github.ref }}" == "refs/heads/development" ]; then
+            STACK_NAME="dev-rg-professional-portfolio-site-v1"
             TEMPLATE_FILE="${{ github.workspace }}/.cloudformation/dev-stack.yml"
           else
+            STACK_NAME="prod-rg-professional-portfolio-site-v1"
             TEMPLATE_FILE="${{ github.workspace }}/.cloudformation/prod-stack.yml"
           fi
       
@@ -89,17 +86,14 @@ jobs:
             --template-file $TEMPLATE_FILE \
             --parameter-overrides SiteSuffix=${{ env.STACK_NAME }} \
             --no-fail-on-empty-changeset
-
-      - name: Check if S3 bucket exists and create it if not
-        run: |
-          S3_BUCKET_NAME="${{ env.STACK_NAME }}"
         
-          if ! aws s3api head-bucket --bucket "${S3_BUCKET_NAME}" 2>/dev/null; then
+          # Create the S3 bucket if it doesn't exist
+          if ! aws s3api head-bucket --bucket "${STACK_NAME}" 2>/dev/null; then
             aws s3api create-bucket \
-              --bucket "${S3_BUCKET_NAME}" \
+              --bucket "${STACK_NAME}" \
               --region "${AWS_REGION}" \
               --create-bucket-configuration LocationConstraint="${AWS_REGION}"
           fi
 
-      - name: Upload files to the S3 bucket
-        run: aws s3 sync build/ s3://${S3_BUCKET_NAME} --delete
+          # Sync the build directory to the S3 bucket
+          aws s3 sync build/ s3://${STACK_NAME} --delete
