@@ -84,6 +84,7 @@ jobs:
           aws cloudformation deploy \
             --stack-name "${DEPLOY_NAME}" \
             --template-file ".cloudformation/${TEMPLATE_NAME}" \
+            --parameter-overrides BucketName="${DEPLOY_NAME}" \
             --no-fail-on-empty-changeset \
             --region "${AWS_REGION}"
 
@@ -92,6 +93,13 @@ jobs:
 
           # Generate pre-signed URL for the development environment
           if [[ "${{ github.ref }}" == "refs/heads/development" ]]; then
-            presigned_url=$(aws s3 presign s3://${DEPLOY_NAME}/index.html --expires-in 43200)
+            presigned_url=$(aws s3 presign s3://${DEPLOY_NAME}/index.html --expires-in 7200S)
             echo "Pre-signed URL: ${presigned_url}"
+          fi
+
+          # Print Website URL for production environment
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            stack_output=$(aws cloudformation describe-stacks --stack-name "${DEPLOY_NAME}")
+            website_url=$(echo "${stack_output}" | jq -r '.Stacks[0].Outputs[] | select(.OutputKey=="WebsiteURL") | .OutputValue')
+            echo "Website URL: ${website_url}"
           fi

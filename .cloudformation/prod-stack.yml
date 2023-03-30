@@ -1,8 +1,13 @@
+Parameters:
+  BucketName:
+    Type: String
+    Description: The name of the production S3 bucket
+
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: rg-portfolio-production
+      BucketName: !Ref BucketName
       AccessControl: PublicRead
       WebsiteConfiguration:
         IndexDocument: index.html

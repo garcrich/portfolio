@@ -1,8 +1,13 @@
+Parameters:
+  BucketName:
+    Type: String
+    Description: The name of the development S3 bucket
+
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: rg-portfolio-development
+      BucketName: !Ref BucketName
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
@@ -25,3 +30,4 @@ Outputs:
   S3BucketName:
     Description: 'The name of the S3 bucket'
     Value: !Ref S3Bucket
+  
