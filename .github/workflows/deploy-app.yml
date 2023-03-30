@@ -68,20 +68,20 @@ jobs:
 
       - name: Deploy the CloudFormation stack
         run: |
-          if [ ${{ github.ref }} == 'refs/heads/development' ]; then
+          if [ "${{ github.ref }}" == "refs/heads/development" ]; then
             STACK_NAME="dev-${{ env.SITE_SUFFIX }}"
-            TEMPLATE_FILE="./cloudformation/dev-stack.yml"
+            TEMPLATE_FILE="${{ github.workspace }}/cloudformation/dev-stack.yml"
           else
             STACK_NAME="prod-${{ env.SITE_SUFFIX }}"
-            TEMPLATE_FILE="./cloudformation/prod-stack.yml"
+            TEMPLATE_FILE="${{ github.workspace }}/cloudformation/prod-stack.yml"
           fi
-
+      
           aws cloudformation deploy \
             --stack-name $STACK_NAME \
             --template-file $TEMPLATE_FILE \
             --parameter-overrides SiteSuffix=${{ env.SITE_SUFFIX }} \
             --no-fail-on-empty-changeset
-
+            
       - name: Retrieve the S3 bucket name
         id: get_bucket_name
         run: |
