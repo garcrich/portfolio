@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from '../assets/images/Print_Transparent.svg';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
