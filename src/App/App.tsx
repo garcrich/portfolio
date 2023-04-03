@@ -8,7 +8,7 @@ import { Button } from '@mui/material';
 
 function App() {
   return (
-    <div className={styles.App}>
+    <div className={styles.App} data-testid='app'>
       <header className={styles['App-header']}>
         <img src={logo} className={styles["App-logo"]} alt="logo" />
         <p>

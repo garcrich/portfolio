@@ -2,12 +2,12 @@ import React from 'react';
 import styles from './Navbar.module.scss';
 
 
-const Footer = () => {
+const NavBar = () => {
   return (
-    <footer className={styles.container} data-testid="nav">
+    <nav className={styles.container} data-testid="nav">
       <h2 className={styles.title}>Navbar</h2>
-    </footer>
+    </nav>
   )
 }
 
-export default Footer;
+export default NavBar;
