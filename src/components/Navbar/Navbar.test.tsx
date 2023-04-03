@@ -5,6 +5,6 @@ import Navbar from './Navbar';
 describe('NavComponent', () => {
   it('renders the Nav component', () => {
     render(<Navbar />);
-    expect(screen.getByTestId('nav')).toBeInTheDocument()
+    expect(screen.getByTestId('navbar')).toBeInTheDocument()
   })
 })

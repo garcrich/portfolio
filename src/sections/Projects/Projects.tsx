@@ -1,9 +1,9 @@
-import styles from './Credentials.module.scss';
+import styles from './Projects.module.scss';
 
 const Projects = () => {
   return (
     <section className={styles.container} data-testid="projects">
-      <h2 className={styles.title}>Header</h2>
+      <h2 className={styles.title}>Projects</h2>
     </section>
   )
 }
