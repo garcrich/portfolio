@@ -13,23 +13,7 @@ Resources:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: AES256
 
-  S3BucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    Properties:
-      Bucket: !Ref S3Bucket
-      PolicyDocument:
-        Version: '2012-10-17'
-        Statement:
-          - Effect: Allow
-            Action:
-              - 's3:GetObject'
-            Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
-            Principal: '*'
-
 Outputs:
   S3BucketName:
     Description: 'The name of the S3 bucket'
     Value: !Ref S3Bucket
-
-
-  
