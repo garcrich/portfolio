@@ -1,0 +1,17 @@
+@import "font-variables";
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-bold);
+}
+
+p, ul, ol {
+  font-family: var(--font-family-sans-serif);
+  font-weight: var(--font-weight-normal);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+blockquote {
+  font-style: italic;
+}
