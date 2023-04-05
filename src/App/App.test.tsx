@@ -32,7 +32,7 @@ describe('AppComponent', () => {
 
   it('renders the Credentials component', () => {
     render(<App />);
-    expect(screen.getByTestId('credentials')).toBeInTheDocument()
+    expect(screen.getByTestId('edu-and-certs')).toBeInTheDocument()
   })
 
   it('renders the Recommendations component', () => {
