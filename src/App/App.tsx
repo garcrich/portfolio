@@ -9,7 +9,7 @@ import Footer from '../components/Footer/Footer';
 import Hero from '../sections/Hero/Hero';
 import About from '../sections/About/About';
 import Work from '../sections/Work/Work';
-import Credentials from '../sections/Credentials/Credentials';
+import EduAndCerts from '../sections/EducationAndCertifications/EduAndCerts';
 import Recommendations from '../sections/Recommendations/Recommendations';
 import Contact from '../sections/Contact/Contact';
 import Projects from '../sections/Projects/Projects';
@@ -22,7 +22,7 @@ function App() {
         <Hero />
         <About />
         <Work />
-        <Credentials />
+        <EduAndCerts />
         <Recommendations />
         <Projects />
         <Contact />
