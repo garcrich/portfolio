@@ -1,8 +1,5 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import Header from '../sections/Header/Header';
-import About from '../sections/About/About';
 
 describe('AppComponent', () => {
   
@@ -18,9 +15,9 @@ describe('AppComponent', () => {
     expect(screen.getByTestId('navbar')).toBeInTheDocument()
   })
 
-  it('renders the Header component', () => {
+  it('renders the Hero component', () => {
     render(<App />);
-    expect(screen.getByTestId('header')).toBeInTheDocument()
+    expect(screen.getByTestId('hero')).toBeInTheDocument()
   })
 
   it('renders the About component', () => {

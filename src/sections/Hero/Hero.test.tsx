@@ -1,9 +1,9 @@
 import { render,screen } from "@testing-library/react";
-import Header from "./Header";
+import Hero from "./Hero";
 
-describe("HeaderComponent", () => {
+describe("HeroComponent", () => {
   it("renders the Header component", () => {
-    render(<Header />)
+    render(<Hero />)
     expect(screen.getByTestId("header")).toBeInTheDocument()
   })
 })

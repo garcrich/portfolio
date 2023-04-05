@@ -6,7 +6,7 @@ import '@fontsource/roboto/700.css';
 import styles from './App.module.scss';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
-import Header from '../sections/Header/Header';
+import Hero from '../sections/Hero/Hero';
 import About from '../sections/About/About';
 import Work from '../sections/Work/Work';
 import Credentials from '../sections/Credentials/Credentials';
@@ -19,7 +19,7 @@ function App() {
     <div className={styles.App} data-testid='app'>
       <Navbar/>
       <main className={styles.main}>
-        <Header />
+        <Hero />
         <About />
         <Work />
         <Credentials />
