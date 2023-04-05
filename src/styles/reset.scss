@@ -1,0 +1,40 @@
+/* CSS Reset */
+
+/* Box sizing rules */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Remove default padding */
+ul[class], ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body, h1, h2, h3, h4, h5, h6, p, ul[class], ol[class], li, figure, figcaption, blockquote, dl, dd {
+  margin: 0;
+}
+
+/* Set default font size */
+html, body {
+  font-size: 16px;
+}
+
+/* Remove list styles on ul, ol elements */
+ul[class], ol[class] {
+  list-style: none;
+}
+
+/* Set anchor link styles */
+a {
+  text-decoration: none;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
