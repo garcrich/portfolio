@@ -2,7 +2,25 @@
   padding: 2rem;
 }
 
-.title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navMenu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  li {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+}
+
+.logo {
+  margin-right: auto;
 }
