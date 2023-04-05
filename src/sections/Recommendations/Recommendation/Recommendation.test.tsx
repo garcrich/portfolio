@@ -5,7 +5,7 @@ describe('RecommendationsComponent', () => {
   const mockProps = {
     name: 'John Doe',
     title: 'Senior Engineer',
-    text: 'This is a recommendation text.\n\nThis is another paragraph.',
+    text: ['This is a recommendation text', 'This is another paragraph.'],
   };
 
   it('renders the Recommendation component', () => {
@@ -51,5 +51,5 @@ describe('RecommendationsComponent', () => {
     );
     expect(screen.getByTestId('recommendation')).toBeInTheDocument();
   });
-  
+
 });
