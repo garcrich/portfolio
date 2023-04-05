@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Recommendation from './Recommendation';
+import Recommendation from './_Recommendation';
 
 describe('RecommendationsComponent', () => {
   const mockProps = {

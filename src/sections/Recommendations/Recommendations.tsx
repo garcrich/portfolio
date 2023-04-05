@@ -1,4 +1,4 @@
-import Recommendation from './Recommendation/Recommendation';
+import Recommendation from './_Recommendation/_Recommendation';
 import styles from './Recommendations.module.scss'
 import recommendationsData from './recommendationsData'
 
