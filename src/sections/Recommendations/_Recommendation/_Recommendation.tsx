@@ -1,4 +1,3 @@
-import styles from './Recommendation.module.scss';
 type RecommendationProps = {
   name: string;
   title: string;
