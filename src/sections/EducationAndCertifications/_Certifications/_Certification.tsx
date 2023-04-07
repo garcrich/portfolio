@@ -1,6 +1,6 @@
 // Certification.tsx
 import { FC } from 'react';
-import styles from './Certification.module.scss';
+import styles from './_Certification.module.scss';
 
 interface CertificationProps {
   title: string;

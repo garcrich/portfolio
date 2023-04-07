@@ -1,4 +1,4 @@
-import Certification from './Certifications/Certification';
+import Certification from './_Certifications/_Certification';
 import styles from './EduAndCerts.module.scss';
 import { certifications } from './certificationData';
 

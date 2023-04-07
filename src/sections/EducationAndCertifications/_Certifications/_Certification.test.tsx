@@ -1,6 +1,6 @@
 // Certification.test.tsx
 import { render, screen } from '@testing-library/react';
-import Certification from './Certification';
+import Certification from './_Certification';
 
 const mockCertification = {
   title: 'Test Certification',
