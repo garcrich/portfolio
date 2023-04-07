@@ -1,14 +1,39 @@
 @import "font-variables";
 
+h1 {
+  font-size: 2.5rem; // 40px
+}
+
+h2 {
+  font-size: 2rem; // 32px
+}
+
+h3 {
+  font-size: 1.75rem; // 28px
+}
+
+h4 {
+  font-size: 1.5rem; // 24px
+}
+
+h5 {
+  font-size: 1.25rem; // 20px
+}
+
+h6 {
+  font-size: 1rem; // 16px
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-display);
   font-weight: var(--font-weight-bold);
+  line-height: 1.25;
 }
 
 p, ul, ol {
   font-family: var(--font-family-sans-serif);
   font-weight: var(--font-weight-normal);
-  font-size: 16px;
+  font-size: 1rem; // 16px
   line-height: 1.5;
 }
 
