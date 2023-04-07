@@ -1,1 +1,29 @@
-@import "fonts/font-styles";
+// Basic typography settings
+body {
+  font-family: var(--font-family-sans-serif);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+// Link styles
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+
+// Other global elements
+ul, ol {
+  list-style-type: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
