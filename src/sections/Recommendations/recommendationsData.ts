@@ -1,8 +1,4 @@
-interface RecommendationData {
-  name: string;
-  title: string;
-  text: string[];
-}
+import { RecommendationData } from "./recommendationTypes";
 
 const recommendationsData: RecommendationData[] = [
   {

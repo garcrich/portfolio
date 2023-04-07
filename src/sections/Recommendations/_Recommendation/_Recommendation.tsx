@@ -1,11 +1,9 @@
-type RecommendationProps = {
-  name: string;
-  title: string;
-  text: string[];
-}
+import { RecommendationData } from "../recommendationTypes";
+import styles from "./_Recommendation.module.scss";
+type RecommendationProps = RecommendationData
 
 const Recommendation: React.FC<RecommendationProps> = ({ name, title, text }) => (
-  <div data-testid="recommendation">
+  <div className={styles.container} data-testid="recommendation">
     <h3>{name}</h3>
     <h4>{title}</h4>
     {text.map((paragraph, index) => (
