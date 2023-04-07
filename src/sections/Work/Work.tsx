@@ -7,7 +7,7 @@ const Work = () => {
     <section className={styles.container} data-testid="work">
       <h2 className={styles.title}>Work History</h2>
       {workHistoryData.map((job, index) => (
-        <Position key={index} job={job} />
+        <Position key={`${index}_${job.company}`} job={job} />
       ))}
     </section>
   );

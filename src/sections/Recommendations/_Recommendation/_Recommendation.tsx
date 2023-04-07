@@ -9,7 +9,7 @@ const Recommendation: React.FC<RecommendationProps> = ({ name, title, text }) =>
     <h3>{name}</h3>
     <h4>{title}</h4>
     {text.map((paragraph, index) => (
-      <p key={index}>{paragraph}</p>
+      <p key={`${index}_${paragraph.slice(0,5)}`}>{paragraph}</p>
     ))}
   </div>
 );
