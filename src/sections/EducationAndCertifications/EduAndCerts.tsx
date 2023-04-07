@@ -1,4 +1,6 @@
+import Certification from './Certifications/Certification';
 import styles from './EduAndCerts.module.scss';
+import { certifications } from './certificationData';
 
 const EduAndCerts = () => {
   return (
@@ -10,18 +12,9 @@ const EduAndCerts = () => {
       <p>Idaho State University, 2012 - 2016</p>
 
       <h3 className={styles.subtitle}>Certifications</h3>
-      <div className={styles.certification}>
-        <h4>AWS Certified DevOps Engineer - Professional</h4>
-        <p>As a DevOps Professional, I've trained to implement and manage a continuous delivery system, automate infrastructure, and manage application lifecycles on the AWS platform.</p>
-      </div>
-      <div className={styles.certification}>
-        <h4>AWS Certified Developer - Associate</h4>
-        <p>This certification has equipped me with the skills to develop, deploy, and debug cloud-based applications using AWS. I focus on best practices, security, and performance optimization.</p>
-      </div>
-      <div className={styles.certification}>
-        <h4>Udacity Front-End Web Developer Nanodegree</h4>
-        <p>Through this Nanodegree, I gained hands-on experience and in-depth knowledge in building responsive, accessible, and performant web applications using HTML, CSS, and JavaScript.</p>
-      </div>
+      {certifications.map((cert) => (
+        <Certification key={cert.title} title={cert.title} description={cert.description} />
+      ))}
     </section>
   )
 }
