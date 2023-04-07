@@ -8,8 +8,10 @@ const EduAndCerts = () => {
       <h2 className={styles.title}>Credentials</h2>
 
       <h3 className={styles.subtitle}>Education</h3>
-      <p>Bachelor of Science (BS), Computer Science</p>
-      <p>Idaho State University, 2012 - 2016</p>
+      <div className={styles.container}>
+        <p>Bachelor of Science (BS), Computer Science</p>
+        <p>Idaho State University, 2012 - 2016</p>
+      </div>
 
       <h3 className={styles.subtitle}>Certifications</h3>
       {certifications.map((cert) => (

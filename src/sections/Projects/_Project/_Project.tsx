@@ -4,7 +4,7 @@ import { ProjectData } from '../ProjectType';
 
 const Project:FC<ProjectData> = ({ title, description }) => {
   return (
-    <div className={styles.project} data-testid="project">
+    <div className={styles.container} data-testid="project">
       <h3 className={styles.projectTitle}>{title}</h3>
       <p className={styles.projectDescription}>
         {description}

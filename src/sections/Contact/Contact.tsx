@@ -11,8 +11,8 @@ const Contact: React.FC = () => {
       </p>
       <div className={styles.contactInfo}>
         <div className={styles.email}>
-          <Button variant='contained'>
-            <a href="mailto:your.rg3646aws@gmail.com">Get in Touch</a>
+          <Button variant="contained">
+            <a style={{"color": 'white'}} href="mailto:your.rg3646aws@gmail.com">Get in Touch</a>
           </Button>
         </div>
       </div>
