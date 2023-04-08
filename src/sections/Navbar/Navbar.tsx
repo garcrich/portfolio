@@ -13,9 +13,10 @@ const NavBar = () => {
         <li>Recommendations</li>
         <li>Contact</li>
         <li>Credentials</li>
+        <li className="button button-outline">Resume</li>
       </ul>
     </nav>
   )
 }
 
-export default NavBar;
+export default NavBar; 
