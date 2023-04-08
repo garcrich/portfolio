@@ -16,6 +16,10 @@ const router = createBrowserRouter([
     element: <Home />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/Resume-Ricky-Garcia.pdf",
+    element: `${process.env.PUBLIC_URL}/assets/Resume-Ricky-Garcia.pdf`,
+  }
 ]);
 
 const root = ReactDOM.createRoot(
