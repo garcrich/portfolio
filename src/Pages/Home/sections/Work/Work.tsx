@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import styles from './Work.module.scss';
 import Position from './_Position/_Position';
 import workHistoryData from './workHistoryData';
 
-const Work = () => {
+const Work:FC = () => {
   return (
     <section className={styles.container} data-testid="work">
       <h2 className={styles.title}>Work History</h2>

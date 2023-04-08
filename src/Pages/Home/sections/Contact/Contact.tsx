@@ -1,7 +1,7 @@
-import React from 'react';
+import { FC } from 'react';
 import styles from './Contact.module.scss';
 
-const Contact: React.FC = () => {
+const Contact: FC = () => {
   return (
     <section className={styles.container} data-testid="contact">
       <h2>Contact</h2>

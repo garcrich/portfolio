@@ -1,7 +1,8 @@
+import { FC } from 'react';
 import styles from './About.module.scss';
 
 
-const About = () => {
+const About: FC = () => {
   return (
     <section className={styles.container} data-testid="about">
       <h2 className={styles.title}>About Me</h2>

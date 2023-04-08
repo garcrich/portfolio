@@ -1,7 +1,9 @@
 
-import styles from './Hero.module.scss';
+import { FC } from 'react';
+import styles from './Hero.module.scss'
 import HeroLogo from './HeroLogo'
-const Header = () => {
+
+const Header:FC = () => {
   return (
   <section className={styles.container} data-testid="hero">
     <HeroLogo />

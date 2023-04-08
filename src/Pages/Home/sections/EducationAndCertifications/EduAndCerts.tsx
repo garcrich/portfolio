@@ -1,8 +1,9 @@
 import Certification from './_Certifications/_Certification';
 import styles from './EduAndCerts.module.scss';
 import { certifications } from './certificationData';
+import { FC } from 'react';
 
-const EduAndCerts = () => {
+const EduAndCerts:FC = () => {
   return (
     <section className={styles.container} data-testid="edu-and-certs">
       <h2 className={styles.title}>Credentials</h2>
