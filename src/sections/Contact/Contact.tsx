@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Contact.module.scss';
-import { Button } from '@mui/material';
 
 const Contact: React.FC = () => {
   return (
@@ -11,9 +10,9 @@ const Contact: React.FC = () => {
       </p>
       <div className={styles.contactInfo}>
         <div className={styles.email}>
-          <Button variant="contained">
+          <button className='button'>
             <a style={{"color": 'white'}} href="mailto:your.rg3646aws@gmail.com">Get in Touch</a>
-          </Button>
+          </button>
         </div>
       </div>
     </section>

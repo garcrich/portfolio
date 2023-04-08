@@ -3,10 +3,19 @@
   --logo-color-primary: #293462;
   --logo-color-secondary: #d61c4e;
   --logo-color-tertiary: #feb139;
-  
+
   // Colors
-  --color-primary: #293462; // Use the logo primary color
-  --color-secondary: #294f62; // Analogous color to primary
-  --color-tertiary: #4685ad; // Analogous color to secondary
-  --color-accent: #feb139; // Use the logo tertiary color
-  }
+  --background-color: #1d2438;
+
+// Button colors
+  --button-background-color: var(--logo-color-primary);
+  --button-text-color: #ffffff; // A light color for contrast
+  --button-hover-color: #445c8e; // A lighter shade of the primary color
+  --button-active-color: #0d1424; // A darker shade of the primary color
+
+  // Secondary button colors
+  --button-secondary-background-color: var(--logo-color-secondary);
+  --button-secondary-hover-color: #c91642; // A darker shade of the secondary color
+  --button-secondary-active-color: #b11238; // An even darker shade of the secondary color
+  
+}

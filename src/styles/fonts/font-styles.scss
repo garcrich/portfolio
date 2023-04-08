@@ -24,21 +24,31 @@ h6 {
   font-size: 1rem; // 16px
 }
 
-h1, h2, h3, h4, h5, h6 {
+ul, ol {
+  font-size: 1.25rem; // 16px
+}
+
+h1, h2, h3, h4, h5, h6, ul, ol {
   font-family: var(--font-family-display);
   font-weight: var(--font-weight-bold);
   line-height: 1.25;
+  color: var(--text-color-primary);
+  
 }
 
-p, ul, ol {
+p {
+  letter-spacing: .005rem;
   font-family: var(--font-family-sans-serif);
   font-weight: var(--font-weight-normal);
-  font-size: 1rem; // 16px
+  font-size: 1.25rem; // 16px
   line-height: 1.5;
+  color: var(--text-color-secondary);
+
 }
 
 blockquote {
   font-style: italic;
+  color: var(--text-color-tertiary);
 }
 
 code, pre {
