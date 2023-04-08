@@ -1,0 +1,20 @@
+// Desktop styles
+@mixin desktop {
+  @media only screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+// Tablet styles
+@mixin tablet {
+  @media only screen and (max-width: 991px) {
+    @content;
+  }
+}
+
+// Mobile styles
+@mixin mobile {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
