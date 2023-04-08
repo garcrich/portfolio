@@ -1,7 +1,7 @@
 
 import { FC } from 'react';
 import styles from './ErrorPage.module.scss'
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const ErrorPage:FC = () => {
