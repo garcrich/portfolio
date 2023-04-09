@@ -1,5 +1,14 @@
-.container {
-  padding: 2rem;
+.errorPageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.errorBtn {
+  display: block;
+  margin-top: 1rem;
 }
 
 .title {
