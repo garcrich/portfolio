@@ -1,4 +1,9 @@
 :root {
+  // breakpoints
+  --breakpoint-desktop: 992px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-mobile: 480px;
+
   // logo colors
   --logo-color-primary: #293462;
   --logo-color-secondary: #d61c4e;
@@ -7,7 +12,7 @@
   // Colors
   --background-color: #1d2438;
 
-// Button colors
+  // Button colors
   --button-background-color: var(--logo-color-primary);
   --button-text-color: #ffffff; // A light color for contrast
   --button-hover-color: #445c8e; // A lighter shade of the primary color
@@ -17,5 +22,40 @@
   --button-secondary-background-color: var(--logo-color-secondary);
   --button-secondary-hover-color: #c91642; // A darker shade of the secondary color
   --button-secondary-active-color: #b11238; // An even darker shade of the secondary color
-  
+
+  // Font Families
+  --font-family-sans-serif: 'Roboto', 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+  --font-family-display: 'THICCCBOI', 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+
+  // Font Weights
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  // Text colors
+  --text-color-primary: #f0f0f0;
+  --text-color-secondary: #d0d0d0;
+  --text-color-tertiary: #b0b0b0;
+
+
+  // Margins
+  --margin-xs: 0.5rem;
+  --margin-sm: 1rem;
+  --margin-md: 2rem;
+  --margin-lg: 3rem;
+  --margin-xl: 4rem;
+
+  // Padding
+  --padding-xs: 0.5rem;
+  --padding-sm: 1rem;
+  --padding-md: 2rem;
+  --padding-lg: 3rem;
+  --padding-xl: 4rem;
+
+  // Border radius
+  --border-radius-xs: 0.25rem;
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 1rem;
+  --border-radius-lg: 2rem;
+  --border-radius-xl: 4rem;
 }

@@ -1,20 +1,20 @@
 // Desktop styles
 @mixin desktop {
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: var(--breakpoint-desktop)) {
     @content;
   }
 }
 
 // Tablet styles
 @mixin tablet {
-  @media only screen and (max-width: 991px) {
+  @media only screen and (min-width: var(--breakpoint-mobile)) and (max-width: calc(var(--breakpoint-tablet) - 1px)) {
     @content;
   }
 }
 
 // Mobile styles
 @mixin mobile {
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: var(--breakpoint-mobile)) {
     @content;
   }
 }
