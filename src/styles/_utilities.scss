@@ -1,0 +1,27 @@
+// _utilities.scss
+
+// Utility class generator for margin and padding
+@mixin generate-utility-classes($property, $directions, $property-name, $sizes) {
+  @each $suffix, $size in $sizes {
+    @each $direction, $full-direction in $directions {
+      .#{$property}#{$direction}-#{$suffix} {
+        #{$property-name}-#{$full-direction}: #{$size};
+      }
+    }
+  }
+}
+
+$sizes: (
+  '0': var(--sp-0),
+  'xs': var(--sp-xs),
+  'sm': var(--sp-sm),
+  'md': var(--sp-md),
+  'lg': var(--sp-lg),
+  'xl': var(--sp-xl)
+);
+
+// Generate margin utility classes
+@include generate-utility-classes('m', (t: 'top', b: 'bottom', l: 'left', r: 'right'), 'margin', $sizes);
+
+// Generate padding utility classes
+@include generate-utility-classes('p', (t: 'top', b: 'bottom', l: 'left', r: 'right'), 'padding', $sizes);
