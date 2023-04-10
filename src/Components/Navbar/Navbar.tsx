@@ -5,21 +5,38 @@ import menuData from './MenuData';
 import styles from './Navbar.module.scss';
 import DesktopNav from './_DesktopNav/_DesktopNav';
 import MobileNav from './_MobileNav/_MobileNav';
+import { useMediaQuery } from 'react-responsive'
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [underlayPosHolder, setUnderlayPosHolder] = useState<boolean>(false);
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
   useEffect(() => {
-    setUnderlayPosHolder(true);
-    const timer = setTimeout(() => {
+    if (!underlayPosHolder) {
+      setUnderlayPosHolder(true);
+    }
+  
+    const hideUnderlayTimeout = setTimeout(() => {
       setUnderlayPosHolder(false);
-    }, 300);
-
+    }, 200);
+  
     return () => {
-      clearTimeout(timer);
+      clearTimeout(hideUnderlayTimeout);
     };
   }, [isMobileMenuOpen]);
+  
+  useEffect(() => {
+    if(!isTabletOrMobile) {
+      setIsMobileMenuOpen(false);
+      setUnderlayPosHolder(false);
+    }
+  }, [isTabletOrMobile]);
+
+  const handleUnderlayClick = (): void => {
+
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  }
 
   return (
     <nav className={`${styles.container} ${styles.navContainer}`} data-testid="navbar">
@@ -36,7 +53,13 @@ const NavBar = () => {
         <span className={styles.mobileMenuIconBar} />
         <span className={styles.mobileMenuIconBar} />
       </button>
-      <div data-testid="mobile-menu-underlay" className={`${styles.mobileMenuUnderlay} ${isMobileMenuOpen && styles.active} ${underlayPosHolder && styles.underlayPosHolder}`} />
+      {isTabletOrMobile && (
+        <div 
+          data-testid="mobile-menu-underlay" 
+          className={`${styles.mobileMenuUnderlay} ${isMobileMenuOpen && styles.active} ${underlayPosHolder && styles.underlayPosHolder}`} 
+          onClick={handleUnderlayClick}
+        />
+      )}
       <DesktopNav menuItems={menuData} />
       <MobileNav
         menuItems={menuData}

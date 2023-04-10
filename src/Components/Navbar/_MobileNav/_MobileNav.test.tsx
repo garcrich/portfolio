@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react';
+import {render, screen, waitFor} from '@testing-library/react';
 import MobileNav from './_MobileNav';
 import menuData from '../MenuData';
 
@@ -15,10 +15,12 @@ describe('MobileNav', () => {
     expect(screen.getByTestId('mobile-nav')).toBeInTheDocument();
   });
 
-  it('has isMobileMenuOpen class when isMobileMenuOpen is true', () => {
+  it('has isMobileMenuOpen class when isMobileMenuOpen is true', async () => {
     const setIsMobileMenuOpen = jest.fn();
-    render(<MobileNav menuItems={menuData} isMobileMenuOpen={true} setIsMobileMenuOpen={setIsMobileMenuOpen}/>);
-    expect(screen.getByTestId('mobile-nav')).toHaveClass('isMobileMenuOpen');
+    render(<MobileNav menuItems={menuData} isMobileMenuOpen={true} setIsMobileMenuOpen={setIsMobileMenuOpen} />);
+    await waitFor(() => {
+      expect(screen.getByTestId('mobile-menu-container')).toHaveClass('isMobileMenuOpen');
+    }, { timeout: 200 });
   });
 
   it('does not have isMobileMenuOpen class when isMobileMenuOpen is false', () => {
