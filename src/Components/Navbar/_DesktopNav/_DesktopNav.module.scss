@@ -8,9 +8,11 @@
   list-style: none;
   li {
     margin-left: 1rem;
+    a:not(.buttonLink):hover {
+      color: var(--logo-color-secondary);
+    }
   }
-}
-
+}  
 @include tablet {
   .desktopMenu {
     display: none;

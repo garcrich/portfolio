@@ -18,7 +18,8 @@ const DesktopNav:FC<DesktopNavProps> = ({menuItems}) => {
         <li><a href="#contact">{menuItems.contact}</a></li>
         <li><a href="#credentials">{menuItems.Credentials}</a></li>
         <li className="button button-outline">
-          <a 
+          <a
+            className={styles.buttonLink}
             href={`/${menuItems.Resume.link}`}
             target="_blank"
             rel="noreferrer" 
