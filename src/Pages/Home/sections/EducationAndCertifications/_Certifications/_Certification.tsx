@@ -2,7 +2,7 @@
 import { FC } from 'react';
 import styles from './_Certification.module.scss';
 
-interface CertificationProps {
+type CertificationProps = {
   title: string;
   description: string;
 }
