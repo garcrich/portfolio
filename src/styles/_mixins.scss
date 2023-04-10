@@ -1,20 +1,21 @@
+@import 'variables';
 // Desktop styles
 @mixin desktop {
-  @media only screen and (min-width: var(--breakpoint-desktop)) {
+  @media only screen and (max-width: $breakpoint-desktop) {
     @content;
   }
 }
 
 // Tablet styles
 @mixin tablet {
-  @media only screen and (min-width: var(--breakpoint-mobile)) and (max-width: calc(var(--breakpoint-tablet) - 1px)) {
+  @media only screen and (max-width: $breakpoint-tablet) {
     @content;
   }
 }
 
 // Mobile styles
 @mixin mobile {
-  @media only screen and (max-width: var(--breakpoint-mobile)) {
+  @media only screen and (max-width: $breakpoint-mobile) {
     @content;
   }
 }
