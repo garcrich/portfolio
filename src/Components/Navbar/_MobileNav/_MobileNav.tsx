@@ -1,14 +1,21 @@
-import { FC } from 'react';
+import { Dispatch, FC, useEffect } from 'react';
 import styles from './_MobileNav.module.scss';
 import { MenuData } from '../NavBarTypes';
 
 type MobileNavProps = {
   menuItems: MenuData;
+  isMobileMenuOpen: boolean;
+  setIsMobileMenuOpen: Dispatch<React.SetStateAction<boolean>>
+
 }
 
-const MobileNav:FC<MobileNavProps> = ({menuItems}) => {
+const MobileNav:FC<MobileNavProps> = ({menuItems, isMobileMenuOpen, setIsMobileMenuOpen}) => {
+;
   return (
-    <ul className={styles.mobileMenu} data-testid="mobile-nav">
+    <ul className={`${styles.mobileMenu} ${isMobileMenuOpen && styles.isMobileMenuOpen} mt-sm`} data-testid="mobile-nav">
+        <button className={styles.closeButton} onClick={() => setIsMobileMenuOpen(false)} data-testid="close-button">
+          Close
+        </button>
         <li><a href="#about">{menuItems.about}</a></li>
         <li><a href="#work">{menuItems.work}</a></li>
         <li><a href="#projects">{menuItems.projects}</a></li>

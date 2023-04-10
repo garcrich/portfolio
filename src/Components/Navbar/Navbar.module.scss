@@ -17,9 +17,7 @@
   }
 
   // Tablet styles
-  @include tablet {
-    padding: 1rem;
-  }
+
 
   // Mobile styles
   @include mobile {
@@ -27,9 +25,78 @@
   }
 }
 
+.mobileMenuIcon, .mobileMenuIconBar {
+  display: none;
+  width: 28px;
+  @include tablet {
+    display: block;
+  }
+}
+
+.mobileMenuIcon {
+  height: 28px;
+  position: relative;
+  top: -1px;
+  cursor: pointer;
+  //reset button styles
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+.mobileMenuIconBar { 
+  @include tablet {
+    background-color: var(--text-color-primary);
+    border-radius: 4px;
+    height: 4px;
+    &:nth-of-type(2), &:nth-of-type(3) {
+      margin-top: 6px;
+    }
+  }
+}
+
+
+.mobileMenuUnderlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transform: translateX(-100%);
+  
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+  transition: opacity 0.3s ease-in-out;
+  &.active {
+    // transition: opacity 0.5s ease-in-out; // keep this line
+    transform: translateX(0);
+    opacity: 1;
+  }
+  &.underlayPosHolder {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
+.mobileMenuButton {
+  
+  display: none;
+  @include tablet {
+    display: block;
+  }
+}
+
+
 .logo {
   margin-right: auto;
   position: relative;
   top: 3px;
-    max-height: 50px;
+  max-height: 50px;
 }

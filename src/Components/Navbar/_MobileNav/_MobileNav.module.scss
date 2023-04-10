@@ -1,10 +1,28 @@
 @import '../../../styles/mixins';
+
 .mobileMenu {
   display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100%;
+  width: 300px;
+  background-color: var(--background-color-secondary);
+  z-index: 20;
+  overflow-y: scroll;
+  transition: right 0.5s ease-in-out;
+  overflow: hidden;
+
+  @include tablet {
+    display: block;
+  }
 }
 
-@include tablet {
-  .mobileMenu {
-    display: block;
+.isMobileMenuOpen {
+  right: 0;
+
+  li {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
