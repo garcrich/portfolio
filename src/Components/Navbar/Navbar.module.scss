@@ -27,22 +27,9 @@
   }
 }
 
-.navMenu {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  list-style: none;
-  li {
-    margin-left: 1rem;
-  }
-}
-
 .logo {
   margin-right: auto;
   position: relative;
   top: 3px;
-  img {
     max-height: 50px;
-  }
 }

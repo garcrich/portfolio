@@ -1,0 +1,18 @@
+@import '../../../styles/mixins';
+
+.desktopMenu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  list-style: none;
+  li {
+    margin-left: 1rem;
+  }
+}
+
+@include tablet {
+  .desktopMenu {
+    display: none;
+  }
+}

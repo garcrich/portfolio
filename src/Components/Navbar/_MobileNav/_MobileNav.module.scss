@@ -1,0 +1,10 @@
+@import '../../../styles/mixins';
+.mobileMenu {
+  display: none;
+}
+
+@include tablet {
+  .mobileMenu {
+    display: block;
+  }
+}
