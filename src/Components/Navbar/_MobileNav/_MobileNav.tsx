@@ -1,7 +1,6 @@
 import { Dispatch, FC } from 'react';
 import styles from './_MobileNav.module.scss';
 import { MenuData } from '../NavBarTypes';
-import { useSpring, animated } from '@react-spring/web';
 
 type MobileNavProps = {
   menuItems: MenuData;
