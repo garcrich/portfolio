@@ -1,3 +1,4 @@
+import styles from "./Hero.module.scss";
 const HeroLogo = () => {
   return (
     <svg
@@ -6,6 +7,7 @@ const HeroLogo = () => {
       height="150"
       viewBox="500 190 285 415"
       xmlSpace="default"
+      className={styles.heroLogo}
     >
       <g paintOrder="stroke">
         <path
