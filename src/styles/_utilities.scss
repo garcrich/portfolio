@@ -1,7 +1,8 @@
 // _utilities.scss
+@import 'mixins';
 
 // Utility class generator for margin and padding
-@mixin generate-utility-classes($property, $directions, $property-name, $sizes) {
+@mixin generate-spacing-classes($property, $directions, $property-name, $sizes) {
   @each $suffix, $size in $sizes {
     @each $direction, $full-direction in $directions {
       .#{$property}#{$direction}-#{$suffix} {
@@ -20,8 +21,95 @@ $sizes: (
   'xl': var(--sp-xl)
 );
 
+$directions: (
+  't': 'top',
+  'b': 'bottom',
+  'l': 'left',
+  'r': 'right'
+);
+
 // Generate margin utility classes
-@include generate-utility-classes('m', (t: 'top', b: 'bottom', l: 'left', r: 'right'), 'margin', $sizes);
+@include generate-spacing-classes('m', $directions, 'margin', $sizes);
 
 // Generate padding utility classes
-@include generate-utility-classes('p', (t: 'top', b: 'bottom', l: 'left', r: 'right'), 'padding', $sizes);
+@include generate-spacing-classes('p', $directions, 'padding', $sizes);
+
+// Grid container
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--column-gutter); // Define a column gutter size variable
+  row-gap: var(--row-gutter); // Define a row gutter size variable
+}
+
+
+// Grid container
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+// Grid columns
+@mixin generate-responsive-columns($breakpoint) {
+  @for $i from 1 through 12 {
+    .col-#{$breakpoint}-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+// Generate responsive column classes for each breakpoint
+@include desktop {
+  @include generate-responsive-columns('dt');
+}
+
+@include tablet {
+  @include generate-responsive-columns('tb');
+}
+
+@include mobile {
+  @include generate-responsive-columns('mb');
+}
+
+// Grid gutters
+$gutters: (
+  '0': 0,
+  'xs': 8px,
+  'sm': 16px,
+  'md': 24px,
+  'lg': 32px,
+  'xl': 40px
+);
+
+@mixin generate-responsive-gutters($breakpoint, $gutters, $gutter-property) {
+  @each $suffix, $size in $gutters {
+    .g-#{$breakpoint}-#{$suffix} {
+      #{$gutter-property}: #{$size};
+    }
+  }
+}
+
+$gutters: (
+  '0': 0,
+  'xs': 8px,
+  'sm': 16px,
+  'md': 24px,
+  'lg': 32px,
+  'xl': 40px
+);
+
+// Generate responsive gutter classes for each breakpoint
+@include desktop {
+  @include generate-responsive-gutters('dp', $gutters, 'column-gap');
+  @include generate-responsive-gutters('dp', $gutters, 'row-gap');
+}
+
+@include tablet {
+  @include generate-responsive-gutters('tb', $gutters, 'column-gap');
+  @include generate-responsive-gutters('tb', $gutters, 'row-gap');
+}
+
+@include mobile {
+  @include generate-responsive-gutters('mb', $gutters, 'column-gap');
+  @include generate-responsive-gutters('mb', $gutters, 'row-gap');
+}
