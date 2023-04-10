@@ -39,14 +39,16 @@ const NavBar = () => {
   }
 
   return (
-    <nav className={`${styles.container} ${styles.navContainer}`} data-testid="navbar">
-      <img src={logo} className={styles.logo} alt="logo" />
+    <nav className={`${styles.container} ${styles.navContainer}`} data-testid='navbar'>
+      <a href='/#'>
+        <img src={logo} className={styles.logo} alt='logo' />
+      </a>
 
       <button
         className={styles.mobileMenuIcon}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        data-testid="mobile-menu-button"
-        aria-label="Open mobile menu"
+        data-testid='mobile-menu-button'
+        aria-label='Open mobile menu'
         aria-expanded={isMobileMenuOpen}    
       >
         <span className={styles.mobileMenuIconBar} />
@@ -55,7 +57,7 @@ const NavBar = () => {
       </button>
       {isTabletOrMobile && (
         <div 
-          data-testid="mobile-menu-underlay" 
+          data-testid='mobile-menu-underlay' 
           className={`${styles.mobileMenuUnderlay} ${isMobileMenuOpen && styles.active} ${underlayPosHolder && styles.underlayPosHolder}`} 
           onClick={handleUnderlayClick}
         />
