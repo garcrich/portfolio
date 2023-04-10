@@ -17,9 +17,9 @@ import { FC } from 'react';
 
 const Home:FC = () => {
   return (
-    <div className={styles.App} data-testid='home'>
+    <div data-testid='home'>
       <NavBar />
-      <main className={styles.main}>
+      <main>
         <Hero />
         <About />
         <Work />

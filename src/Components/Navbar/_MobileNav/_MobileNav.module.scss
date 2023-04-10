@@ -6,7 +6,6 @@
   top: 0;
   right: -100%;
   height: 100%;
-  width: 300px;
   background-color: var(--background-color-secondary);
   z-index: 20;
   overflow-y: scroll;
@@ -23,7 +22,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    width: 350px;
+  }
+  @include mobile {
+    width: 100%;
   }
 }
 

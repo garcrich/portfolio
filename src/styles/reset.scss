@@ -8,6 +8,12 @@ html {
   box-sizing: inherit;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+
 /* Remove default padding */
 ul[class], ol[class] {
   padding: 0;
