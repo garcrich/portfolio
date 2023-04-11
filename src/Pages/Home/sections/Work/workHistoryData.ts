@@ -6,7 +6,7 @@ type WorkHistory = {
 }
 const workHistory: WorkHistory[] = [
   {
-    company: 'Vyne Dental®',
+    company: 'Vyne Dental',
     position: 'Senior Software Engineer',
     description: [
       "Developed a comprehensive insurance billing platform using the latest technologies in an agile environment",
@@ -40,8 +40,8 @@ const workHistory: WorkHistory[] = [
     ]
   },
   {
-    company: 'RS&I Inc',
-    position: 'Front End Web Developer',
+    company: 'RS&I Inc.',
+    position: 'Front End Developer',
     description: [
       "Led the redesign of the customer-facing website and HubSpot Blog",
       "Optimized website performance by creating custom solutions and landing pages, and designing engaging email templates aligned with company branding"

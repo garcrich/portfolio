@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styles from './_Position.module.scss';
-
+import profile from '../../../../../assets/images/profile.jpg';
 type PositionProps = {
   job: {
     company: string;
@@ -11,9 +11,10 @@ type PositionProps = {
 
 const Position: FC<PositionProps> = ({ job }) => {
   return (
-    <section className={styles.container} data-testid="position">
-      <h3 className={styles.company}>{job.company}</h3>
-      <h4 className={styles.position}>{job.position}</h4>
+    <section className={`${styles.positionContainer} grid col-g-lg`} data-testid="position">
+      <div className={`col-9`}>
+      <h3 className={`${styles.company} mt-0 mb-0`}>{job.company}</h3>
+      <h4 className={`${styles.position} mt-xs ft-clr-3`}>{job.position}</h4>
       <ul className={styles.descriptionList}>
         {job.description.map((item, index) => (
           <li key={index} className={styles.descriptionItem} data-testid="description-item">
@@ -21,6 +22,7 @@ const Position: FC<PositionProps> = ({ job }) => {
           </li>
         ))}
       </ul>
+      </div>
     </section>
   );
 };

@@ -1,8 +1,30 @@
-.container {
-  padding: 2rem;
+.positionContainer {
+  // border: 3px dotted red;
+  
 }
 
-.title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.companyImg {
+  border-radius: 4px;
+}
+
+.descriptionList {
+  max-width: 450px;
+  min-height: 250px;
+  li {
+    margin-left: 0.9375rem;
+    position: relative;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    line-height: 1.5;
+    &::before {
+      content: "•";
+      position: absolute;
+      left: -0.9375rem;
+      top: 0.35rem;
+      color: var(--logo-color-secondary);
+      line-height: 12px;
+    }
+    &:not(:first-of-type) {
+      margin-top: var(--sp-sm);
+    }
+  }
 }

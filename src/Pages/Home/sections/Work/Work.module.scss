@@ -1,0 +1,43 @@
+:root {
+  --work-panel-transition-setting: opacity .75s;
+}
+
+.tabList {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.tab {
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px 4px 0 0 ;
+  border-bottom: 0px solid var(--logo-color-secondary);
+  font-weight: var(--font-weight-normal);
+  width:125px;
+  outline: none;
+  padding: 10px;
+  transition: background-color .5s ease-in-out;
+  &:not(:last-of-type) {
+    margin-right: 16px;
+  }
+  &.active {
+    transition: background-color .5s ease-in-out;
+    font-weight: var(--font-weight-semi-bold);
+    border-bottom: 2px solid var(--logo-color-secondary);
+    background-color: var(--logo-color-primary);
+  }
+}
+
+.tabPanel {
+  opacity: 0;
+  transition: var(--work-panel-transition-setting);
+  &.active {
+    transition: var(--work-panel-transition-setting);
+    opacity: 1;
+    padding: 1rem;
+    height: 100%;
+  }
+}
