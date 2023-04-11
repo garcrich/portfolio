@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import styles from './About.module.scss';
 import profile from '../../../../assets/images/profile.jpg';
+import TechList from './TechList/_TechList';
+import techListData from './TechListData';
 
 const About: FC = () => {
   return (
@@ -15,33 +17,13 @@ const About: FC = () => {
 
         <h3 className={`mt-lg ft-clr-3 text-2xl ${styles.techHeader}`}>Tech Set</h3>
         <ul className={`mt-sm grid ${styles.techStackList}`}>
-          <li className={`col-4`}>
-            <h4>Frontend</h4>
-            <ul className={`ft-wt-norm`}>
-              <li>TypeScript</li>
-              <li>Webpack</li>
-              <li>React</li>
-              <li>SCSS</li>
-              <li>Jest</li>
-            </ul>
-          </li>
-          <li className={`col-4`}>
-            <h4>.Net</h4>
-            <ul className={`ft-wt-norm`}>
-              <li>.NET Core</li>
-              <li>.Net MVC</li>
-              <li>Entity</li>
-              <li>Razor</li>
-              <li>C#</li>
-            </ul>
-          </li>
-          <li className={`col-4`}>
-            <h4>Cloud</h4>
-            <ul className={`ft-wt-norm`}>
-              <li>Azure</li>
-              <li>AWS</li>
-            </ul>
-          </li>
+        {techListData.map((techList) => (
+          <TechList 
+            key={techList.title}
+            title={techList.title}
+            items={techList.items}
+          />
+        ))}
         </ul>
       </div>
       <div className={`col-6`}>
