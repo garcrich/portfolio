@@ -1,4 +1,73 @@
+@import "../../../../styles/mixins";
+
+p {
+  margin-top: var(--sp-md);
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  margin-top: var(--sp-xs);
+}
+
 .title {
   font-size: 2rem;
   margin-bottom: 1rem;
+  // @include header-line(-16px, 50%, 170px, var(--text-color-primary));
+}
+
+.techHeader {
+  @include header-line(-12.5px, 50%, 120px, var(--text-color-tertiary));
+}
+
+.techStackList {
+  h4 {
+    margin-bottom: 0;
+  }
+  ul {
+    margin-top: var(--sp-md);
+    li {
+      margin-left: 0.9375rem;
+      position: relative;
+      &::before {
+        content: "•";
+        position: absolute;
+        left: -0.9375rem;
+        top: 0.35rem;
+        color: var(--logo-color-secondary);
+        line-height: 12px;
+      }
+      &:not(:first-of-type) {
+        margin-top: var(--sp-sm);
+      }
+      }
+    }
+}
+
+.aspectRatioWrapper {
+  position: relative;
+  padding-bottom: 100%; // Control the aspect ratio here (e.g., use '75%' for a 4:3 aspect ratio)
+  height: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: baseline;
+}
+
+.diamond {
+  position:relative;
+  z-index: -1;
+  width: 100%;
+  overflow: hidden;
+  transform: rotate(45deg) scale(.65);
+  border: 7.5px solid var(--text-color-primary);
+  border-radius: 25px;
+  box-shadow: 0 0 10px 10px var(--logo-color-secondary);
+  .profile {
+    transform: rotate(-45deg) scale(1.5) translateY(4%);
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+  }
 }
