@@ -1,5 +1,27 @@
-// _utilities.scss
-@import 'mixins';
+@import './variables';
+
+// Breakpoints
+
+// Desktop styles
+@mixin desktop {
+  @media only screen and (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+// Tablet styles
+@mixin tablet {
+  @media only screen and (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+// Mobile styles
+@mixin mobile {
+  @media only screen and (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
 
 // Utility class generator for margin and padding
 @mixin generate-spacing-classes($property, $directions, $property-name, $sizes) {
@@ -113,3 +135,29 @@ $gutters: (
   @include generate-responsive-gutters('mb', $gutters, 'column-gap');
   @include generate-responsive-gutters('mb', $gutters, 'row-gap');
 }
+
+// Add a mixin to generate font classes
+@mixin generate-font-classes($property, $values) {
+  @each $suffix, $value in $values {
+    .ft-#{$suffix} {
+      #{$property}: #{$value};
+    }
+  }
+}
+
+// Define the font-weight and font color values
+$font-weights: (
+  'wt-norm': var(--font-weight-normal),
+  'wt-semi-bolt': var(--ft-semi-bold),
+  'wt-bold': var(--ft-bold),
+);
+
+$font-colors: (
+  'clr-1': var(--text-color-primary),
+  'clr-2': var(--text-color-secondary),
+  'clr-3': var(--text-color-tertiary),
+);
+
+// Generate font-weight and font-color classes using the mixin
+@include generate-font-classes('font-weight', $font-weights);
+@include generate-font-classes('color', $font-colors);

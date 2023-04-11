@@ -1,14 +1,21 @@
 //for scss features that are not supported by css variables
-$breakpoint-desktop: 992px;
-$breakpoint-tablet: 768px;
-$breakpoint-mobile: 480px;
+$breakpoint-desktop: 64rem;
+$breakpoint-tablet: 48rem;
+$breakpoint-mobile: 30rem;
 
 :root {
   // breakpoints
-  --breakpoint-desktop: 992px;
-  --breakpoint-tablet: 768px;
-  --breakpoint-mobile: 480px;
+  --breakpoint-desktop: 64rem;
+  --breakpoint-tablet: 48rem; 
+  --breakpoint-mobile: 30rem; 
 
+  // container styles
+  --container-max-width: 75rem;
+  --container-padding-desktop: 2.5rem;
+  --container-padding-tablet: 2.5rem;
+  --container-padding-mobile: 1.2rem; 
+
+  // ccs grid gutters
   --gutter-xs: 0.5rem;
   --gutter-sm: 1rem;
   --gutter-md: 1.5rem;
@@ -43,13 +50,14 @@ $breakpoint-mobile: 480px;
   // Font Weights
   --font-weight-light: 300;
   --font-weight-normal: 400;
+  --font-weight-medium: 500;
   --font-weight-bold: 700;
 
   // Text colors
   --text-color-primary: #f0f0f0;
-  --text-color-secondary: #d0d0d0;
-  --text-color-tertiary: #b0b0b0;
-
+  --text-color-secondary: var(--logo-color-secondary);
+  --text-color-tertiary: var(--logo-color-tertiary);
+  
 
   // Spacing
   --sp-0: 0;
