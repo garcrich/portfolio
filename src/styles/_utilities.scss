@@ -89,7 +89,7 @@ $gutters: (
 //default gutters
 @mixin generate-default-gutters($gutters, $gutter-prop-name, $gutter-property) {
   @each $suffix, $size in $gutters {
-    .g-#{$gutter-prop-name}-#{$suffix} {
+    .#{$gutter-prop-name}-g-#{$suffix} {
       #{$gutter-property}: #{$size};
     }
   }
@@ -102,7 +102,7 @@ $gutters: (
 // breakpoint gutters
 @mixin generate-responsive-gutters($gutters,$gutter-prop-name, $breakpoint, $gutter-property) {
   @each $suffix, $size in $gutters {
-    .g-#{$suffix}-#{$breakpoint} {
+    .#{$gutter-prop-name}-#{$suffix}-g-#{$breakpoint} {
       #{$gutter-property}: #{$size};
     }
   }
@@ -166,7 +166,7 @@ $gutters: (
 // Define the font-weight and font color values
 $font-weights: (
   'wt-norm': var(--font-weight-normal),
-  'wt-semi-bold': var(--ft-semi-bold),
+  'wt-semi-bold': var(--font-semi-bold),
   'wt-bold': var(--font-weight-bold),
 );
 
