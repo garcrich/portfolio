@@ -1,0 +1,15 @@
+@import '../../styles/utilities';
+
+.contentContainer {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding-desktop);
+
+  @include tablet {
+    padding: 0 var(--container-padding-tablet);
+  }
+
+  @include mobile {
+    padding: 0 var(--container-padding-mobile);
+  }
+}

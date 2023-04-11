@@ -13,12 +13,13 @@ import Projects from './sections/Projects/Projects';
 import NavBar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import { FC } from 'react';
+import styles from './Home.module.scss';
 
 const Home:FC = () => {
   return (
     <div data-testid='home'>
       <NavBar />
-      <main>
+      <main className={styles.contentContainer}>
         <Hero />
         <About />
         <Work />
