@@ -4,7 +4,7 @@ import profile from '../../../../assets/images/profile.jpg';
 
 const About: FC = () => {
   return (
-    <section className={`${styles.container} grid`} data-testid="about">
+    <section className={`${styles.container} grid section-spacing`} data-testid="about">
       <div className={`col-6`}>
         <h2 className={`${styles.title} ft-clr-2`}>About Me</h2>
         <p>I'm a senior frontend engineer specializing in captivating digital experiences using technologies like React, TypeScript, and SCSS. My expertise extends to .NET environments and cloud computing.</p> 

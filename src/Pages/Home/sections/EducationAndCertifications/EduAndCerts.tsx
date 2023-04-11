@@ -6,7 +6,7 @@ import { FC, useRef } from 'react';
 const EduAndCerts:FC = () => {
   const eduAndCertsRef = useRef<HTMLDivElement>(null);
   return (
-    <section className={styles.container} ref={eduAndCertsRef}  data-testid="edu-and-certs">
+    <section className={`section-spacing`} ref={eduAndCertsRef}  data-testid="edu-and-certs">
       <h2 className={styles.title}>Credentials</h2>
 
       <h3 className={styles.subtitle}>Education</h3>

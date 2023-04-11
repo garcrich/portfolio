@@ -5,7 +5,7 @@ import { projectsData } from './projectsData';
 
 const Projects:FC = () => {
   return (
-    <section className={styles.container} data-testid="projects">
+    <section className={`section-spacing`} data-testid="projects">
       <h2 className={styles.title}>Projects</h2>
       
       {projectsData.map((project, index) => (

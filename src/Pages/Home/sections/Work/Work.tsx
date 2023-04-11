@@ -5,7 +5,7 @@ import workHistoryData from './workHistoryData';
 
 const Work:FC = () => {
   return (
-    <section className={styles.container} data-testid="work">
+    <section className={`section-spacing`} data-testid="work">
       <h2 className={styles.title}>Work History</h2>
       {workHistoryData.map((job, index) => (
         <Position key={`${index}_${job.company}`} job={job} />

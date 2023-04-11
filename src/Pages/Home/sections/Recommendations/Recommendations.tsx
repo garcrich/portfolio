@@ -5,7 +5,7 @@ import recommendationsData from './recommendationsData'
 
 const Recommendations: FC = () => {
   return (
-    <section className={styles.container} data-testid="recommendations">
+    <section className={`section-spacing`} data-testid="recommendations">
       <h2 className={styles.title}>Recommendations</h2>
       <div className={styles.cardContainer}>
         {recommendationsData.map((rec, index) => (
