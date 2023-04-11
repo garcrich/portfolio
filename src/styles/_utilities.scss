@@ -1,27 +1,5 @@
-@import './variables';
-
-// Breakpoints
-
-// Desktop styles
-@mixin desktop {
-  @media only screen and (max-width: $breakpoint-desktop) {
-    @content;
-  }
-}
-
-// Tablet styles
-@mixin tablet {
-  @media only screen and (max-width: $breakpoint-tablet) {
-    @content;
-  }
-}
-
-// Mobile styles
-@mixin mobile {
-  @media only screen and (max-width: $breakpoint-mobile) {
-    @content;
-  }
-}
+@import 'variables';
+@import 'mixins';
 
 // Utility class generator for margin and padding
 @mixin generate-spacing-classes($property, $directions, $property-name, $sizes) {
@@ -60,21 +38,22 @@ $directions: (
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  column-gap: var(--column-gutter); // Define a column gutter size variable
-  row-gap: var(--row-gutter); // Define a row gutter size variable
+  column-gap: var(--gutter-md); // Define a column gutter size variable
+  row-gap: var(  --gutter-md); // Define a row gutter size variable
 }
 
-
-// Grid container
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+// Default grid column (without breakpoint)
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    grid-column: span $i;
+  }
 }
+
 
 // Grid columns
 @mixin generate-responsive-columns($breakpoint) {
   @for $i from 1 through 12 {
-    .col-#{$breakpoint}-#{$i} {
+    .col-#{$i}-#{$breakpoint} {
       grid-column: span $i;
     }
   }
@@ -103,38 +82,73 @@ $gutters: (
   'xl': 40px
 );
 
-@mixin generate-responsive-gutters($breakpoint, $gutters, $gutter-property) {
+//default gutters
+@mixin generate-default-gutters($gutters, $gutter-prop-name, $gutter-property) {
   @each $suffix, $size in $gutters {
-    .g-#{$breakpoint}-#{$suffix} {
+    .g-#{$gutter-prop-name}-#{$suffix} {
       #{$gutter-property}: #{$size};
     }
   }
 }
 
-$gutters: (
-  '0': 0,
-  'xs': 8px,
-  'sm': 16px,
-  'md': 24px,
-  'lg': 32px,
-  'xl': 40px
-);
+// Generate default gutter classes
+@include generate-default-gutters($gutters, 'col', 'column-gap');
+@include generate-default-gutters($gutters, 'row', 'row-gap');
+
+// breakpoint gutters
+@mixin generate-responsive-gutters($gutters,$gutter-prop-name, $breakpoint, $gutter-property) {
+  @each $suffix, $size in $gutters {
+    .g-#{$suffix}-#{$breakpoint} {
+      #{$gutter-property}: #{$size};
+    }
+  }
+}
 
 // Generate responsive gutter classes for each breakpoint
 @include desktop {
-  @include generate-responsive-gutters('dp', $gutters, 'column-gap');
-  @include generate-responsive-gutters('dp', $gutters, 'row-gap');
+  @include generate-responsive-gutters($gutters, 'col', 'column-gap', 'dt');
+  @include generate-responsive-gutters($gutters, 'col', 'row-gap', 'dt');
 }
 
 @include tablet {
-  @include generate-responsive-gutters('tb', $gutters, 'column-gap');
-  @include generate-responsive-gutters('tb', $gutters, 'row-gap');
+  @include generate-responsive-gutters($gutters, 'col', 'column-gap', 'tb');
+  @include generate-responsive-gutters($gutters, 'col', 'row-gap', 'tb');
 }
 
 @include mobile {
-  @include generate-responsive-gutters('mb', $gutters, 'column-gap');
-  @include generate-responsive-gutters('mb', $gutters, 'row-gap');
+  @include generate-responsive-gutters($gutters, 'col', 'column-gap', 'mb');
+  @include generate-responsive-gutters($gutters, 'col', 'row-gap', 'mb');
 }
+
+// Grid offset
+@mixin generate-offset-classes($breakpoint) {
+  @for $i from 1 through 11 {
+    .g-os-#{$breakpoint}-#{$i} {
+      grid-column-start: $i + 1;
+    }
+  }
+}
+
+// Default offset (without breakpoint)
+@for $i from 1 through 11 {
+  .g-os-#{$i} {
+    grid-column-start: $i + 1;
+  }
+}
+
+// Generate responsive offset classes for each breakpoint
+@include desktop {
+  @include generate-offset-classes('dt');
+}
+
+@include tablet {
+  @include generate-offset-classes('tb');
+}
+
+@include mobile {
+  @include generate-offset-classes('mb');
+}
+
 
 // Add a mixin to generate font classes
 @mixin generate-font-classes($property, $values) {
@@ -148,7 +162,7 @@ $gutters: (
 // Define the font-weight and font color values
 $font-weights: (
   'wt-norm': var(--font-weight-normal),
-  'wt-semi-bolt': var(--ft-semi-bold),
+  'wt-semi-bold': var(--ft-semi-bold),
   'wt-bold': var(--ft-bold),
 );
 
@@ -161,3 +175,29 @@ $font-colors: (
 // Generate font-weight and font-color classes using the mixin
 @include generate-font-classes('font-weight', $font-weights);
 @include generate-font-classes('color', $font-colors);
+
+
+// Text Sizes
+$text-sizes: (
+  'xs': 0.75rem, // 12px
+  'sm': 0.875rem, // 14px
+  'base': 1rem, // 16px
+  'lg': 1.125rem, // 18px
+  'xl': 1.25rem, // 20px
+  '2xl': 1.5rem, // 24px
+  '3xl': 2rem, // 32px
+  '4xl': 2.5rem, // 40px
+  '5xl': 3rem, // 48px
+  '6xl': 3.5rem, // 56px
+);
+
+// Generate text size classes
+@mixin generate-text-size-classes($property, $values) {
+  @each $suffix, $value in $values {
+    .text-#{$suffix} {
+      #{$property}: #{$value};
+    }
+  }
+}
+
+@include generate-text-size-classes('font-size', $text-sizes);

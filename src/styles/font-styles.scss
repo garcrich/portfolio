@@ -1,3 +1,5 @@
+
+
 h1 {
   font-size: 2.5rem; // 40px
 }
@@ -31,8 +33,22 @@ h1, h2, h3, h4, h5, h6, ul, ol {
   font-weight: var(--font-weight-bold);
   line-height: 1.25;
   color: var(--text-color-primary);
-  
+  margin-top: 1.5em; // Add a top margin
+  margin-bottom: 1em; // Add a bottom margin
 }
+
+// Set the top margin of the first element to 0
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child,
+ul:first-child,
+ol:first-child {
+  margin-top: 0;
+}
+
 
 p {
   letter-spacing: .005rem;
@@ -41,7 +57,11 @@ p {
   font-size: 1.25rem; // 16px
   line-height: 1.5;
   color: var(--text-color-primary);
+}
 
+ul, ol {
+  font-size: 1rem; // 16px
+  padding-left: 2em; // Add some left padding for better indentation
 }
 
 blockquote {
