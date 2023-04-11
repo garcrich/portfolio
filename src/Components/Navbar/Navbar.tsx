@@ -39,7 +39,7 @@ const NavBar = () => {
   }
 
   return (
-    <nav className={`${styles.container} ${styles.navContainer}`} data-testid='navbar'>
+    <nav className={`${styles.navContainer}`} data-testid='navbar'>
       <a href='/#'>
         <img src={logo} className={styles.logo} alt='logo' />
       </a>

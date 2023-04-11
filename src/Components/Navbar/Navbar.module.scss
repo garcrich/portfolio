@@ -2,7 +2,7 @@
 .navContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   position: sticky; // Make the navbar sticky
   top: 0; // Stick the navbar to the top of the viewport
   background-color: #0c0f17;
@@ -10,8 +10,7 @@
   z-index: 1000; // Ensure the navbar stays above other content
   padding: 1rem 2rem;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
-
-    padding: 1rem 2rem;
+  padding: 0rem 2rem 1rem;
 }
 
 .mobileMenuIcon, .mobileMenuIconBar {
