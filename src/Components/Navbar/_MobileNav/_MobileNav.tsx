@@ -12,7 +12,7 @@ const MobileNav:FC<MobileNavProps> = ({menuItems, isMobileMenuOpen, setIsMobileM
 
 
   const handleNavClick = (target: string) => {
-    console.log(target);
+
     setIsMobileMenuOpen(false);
   };
 
