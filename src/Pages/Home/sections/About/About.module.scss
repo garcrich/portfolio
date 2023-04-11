@@ -26,24 +26,6 @@ li {
   h4 {
     margin-bottom: 0;
   }
-  ul {
-    margin-top: var(--sp-md);
-    li {
-      margin-left: 0.9375rem;
-      position: relative;
-      &::before {
-        content: "•";
-        position: absolute;
-        left: -0.9375rem;
-        top: 0.35rem;
-        color: var(--logo-color-secondary);
-        line-height: 12px;
-      }
-      &:not(:first-of-type) {
-        margin-top: var(--sp-sm);
-      }
-      }
-    }
 }
 
 .aspectRatioWrapper {
