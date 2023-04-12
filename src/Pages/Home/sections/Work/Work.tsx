@@ -7,7 +7,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 const Work: FC = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0)
   return (
-    <section className={`section-spacing ${styles.workContainer}`} data-testid="work">
+    <section className={`section-spacing`} data-testid="work">
       <h2 className={styles.title}>Work History</h2>
 
       <Tabs onSelect={(index) => setActiveIdx(index)}>
