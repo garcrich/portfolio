@@ -1,5 +1,11 @@
+@import '../../../../styles/mixins';
+
 .eduCertsContainer {
   max-width: 950px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.certTitle {
+  @include header-line(-12.5px, 300px, 180px, var(--text-color-tertiary));
 }

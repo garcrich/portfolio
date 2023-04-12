@@ -17,7 +17,7 @@ const Certification: FC<CertificationProps> = ({ title, description, certificati
   return (
     <div className={`${styles.certContainer} grid ${idx !== 0 ? 'mt-xxxl' : 'mt-0'}`} data-testid="certification">
       <div className={`col-12`}>
-        <h4 className='ft-clr-1 certTitle' style={{"textAlign" : `${isEvenElem ? 'left' : 'right'}`}}>{title}</h4>
+        <h4 className={`ft-clr-1`} style={{"textAlign" : `${isEvenElem ? 'left' : 'right'}`}}>{title}</h4>
         <div className={`grid mt-md ${!isEvenElem ? 'g-ji-end' : 'g-ji-start'}`}>
           
           <div 

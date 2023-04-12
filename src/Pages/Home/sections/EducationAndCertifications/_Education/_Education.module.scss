@@ -1,6 +1,11 @@
+@import '../../../../../styles/mixins';
 .econDeg {
   border: 4px solid #a96f64;
   width: 95%;
   margin-top: 1rem;
   margin-left: auto;
+}
+
+.title {
+  @include header-line(-12.5px, 300px, 140px, var(--text-color-tertiary));
 }

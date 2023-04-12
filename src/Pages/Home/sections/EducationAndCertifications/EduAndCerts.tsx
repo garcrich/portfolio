@@ -13,7 +13,7 @@ const EduAndCerts:FC = () => {
       <Education/>
 
       <div className={`${styles.certsContainer} mt-xxxl`}>
-        <h3 className={`ft-clr-3`}>Certifications</h3>
+        <h3 className={`ft-clr-3 ${styles.certTitle}`}>Certifications</h3>
         {certifications.map((cert, idx) => (
           <Certification 
             key={cert.title}

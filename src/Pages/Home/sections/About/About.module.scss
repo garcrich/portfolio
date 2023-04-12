@@ -19,7 +19,7 @@ li {
 }
 
 .techHeader {
-  @include header-line(-12.5px, 50%, 120px, var(--text-color-tertiary));
+  @include header-line(-12.5px, 300px, 105px, var(--text-color-tertiary));
 }
 
 .techStackList {

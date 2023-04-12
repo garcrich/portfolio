@@ -4,6 +4,10 @@
   max-width: 450px;
 }
 
+.certTitleEven {
+  @include header-line(-12.5px, 300px, 140px, var(--text-color-tertiary));
+}
+
 .certificationDescription {
   position: relative;
   border-radius: 4px;

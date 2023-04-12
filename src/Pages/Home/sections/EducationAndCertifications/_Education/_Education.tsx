@@ -5,8 +5,8 @@ import styles from './_Education.module.scss'
 const Education = () => {
   return (
     <div data-testid='education'>
-    <h3 className={`ft-clr-3`}>Education</h3>
-      <div className={`${styles.container} grid row-g-xs col-g-xl`}>
+    <h3 className={`${styles.title} ft-clr-3`}>Education</h3>
+      <div className={`grid row-g-xs col-g-xl`}>
         <div className='col-12'>
           <h4 className='mb-xs'>Bachelor of Science (BS), Computer Science</h4>
           <h5 className='mt-0'>Idaho State University, 2012 - 2016</h5>
