@@ -22,7 +22,9 @@ $sizes: (
   'sm': var(--sp-sm),
   'md': var(--sp-md),
   'lg': var(--sp-lg),
-  'xl': var(--sp-xl)
+  'xl': var(--sp-xl),
+  'xxl': var(--sp-xxl),
+  'xxxl': var(--sp-xxxl),
 );
 
 $directions: (
@@ -54,6 +56,22 @@ $directions: (
 
   .#{$prefix}-end {
     #{$property}: end;
+  }
+
+  .#{$prefix}-rt {
+    #{$property}: right;
+  }
+
+  .#{$prefix}-lf {
+    #{$property}: left;
+  }
+
+  .#{$prefix}-flex-end {
+    #{$property}: flex-end;
+  }
+
+  .#{$prefix}-flex-start {
+    #{$property}: flex-start;
   }
 
   .#{$prefix}-ctr {
