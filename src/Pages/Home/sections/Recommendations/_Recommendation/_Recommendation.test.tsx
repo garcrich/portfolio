@@ -6,6 +6,7 @@ describe('RecommendationsComponent', () => {
     name: 'John Doe',
     title: 'Senior Engineer',
     text: ['This is a recommendation text', 'This is another paragraph.'],
+    img: 'https://via.placeholder.com/150',
   };
 
   it('renders the Recommendation component', () => {
@@ -14,6 +15,7 @@ describe('RecommendationsComponent', () => {
         name={mockProps.name}
         title={mockProps.title}
         text={mockProps.text}
+        img={mockProps.img}
       />
     );
     expect(screen.getByTestId('recommendation')).toBeInTheDocument();
@@ -25,6 +27,7 @@ describe('RecommendationsComponent', () => {
         name={mockProps.name}
         title={mockProps.title}
         text={mockProps.text}
+        img={mockProps.img}
       />
     );
     expect(screen.getByTestId('recommendation')).toBeInTheDocument();
@@ -36,6 +39,7 @@ describe('RecommendationsComponent', () => {
         name={mockProps.name}
         title={mockProps.title}
         text={mockProps.text}
+        img={mockProps.img}
       />
     );
     expect(screen.getByTestId('recommendation')).toBeInTheDocument();
@@ -47,6 +51,7 @@ describe('RecommendationsComponent', () => {
         name={mockProps.name}
         title={mockProps.title}
         text={mockProps.text}
+        img={mockProps.img}
       />
     );
     expect(screen.getByTestId('recommendation')).toBeInTheDocument();
