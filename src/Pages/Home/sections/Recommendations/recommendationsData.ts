@@ -1,6 +1,9 @@
 import { RecommendationData } from "./recommendationTypes";
 
 const recommendationsData: RecommendationData[] = [
+  {    name: 'Lanye Lund',
+  title: 'Software Engineer at Vyne Dental',
+  text: [`Ricky is an incredible frontend developer. He has strong skills with React and JavaScript. When I worked with him, he was learning cloud-based systems using AWS and has continued to strengthen those skills. He is great to work with and brings his expertise to the contribute in a team environment.`]},
   {
     name: 'Zach Lamb',
     title: 'Full-Stack Developer at Sana Benefits',

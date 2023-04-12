@@ -6,7 +6,7 @@ import recommendationsData from './recommendationsData'
 const Recommendations: FC = () => {
   return (
     <section className={`section-spacing`} data-testid="recommendations">
-      <h2 className={styles.title}>Recommendations</h2>
+      <h2 className={styles.title}>Endorsements from Industry Peers</h2>
       <div className={styles.cardContainer}>
         {recommendationsData.map((rec, index) => (
           <Recommendation key={index} name={rec.name} title={rec.title} text={rec.text} />
