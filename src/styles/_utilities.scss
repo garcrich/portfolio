@@ -46,6 +46,39 @@ $directions: (
   row-gap: var(  --gutter-md); // Define a row gutter size variable
 }
 
+// Grid alignment and justification mixin
+@mixin generate-grid-alignment-classes($prefix, $property) {
+  .#{$prefix}-start {
+    #{$property}: start;
+  }
+
+  .#{$prefix}-end {
+    #{$property}: end;
+  }
+
+  .#{$prefix}-ctr {
+    #{$property}: center;
+  }
+
+  .#{$prefix}-base {
+    #{$property}: baseline;
+  }
+  
+
+  .#{$prefix}-stretch {
+    #{$property}: stretch;
+  }
+
+}
+
+@include generate-grid-alignment-classes('g-as', 'align-self');
+@include generate-grid-alignment-classes('g-js', 'justify-self');
+@include generate-grid-alignment-classes('g-ac', 'align-content');
+@include generate-grid-alignment-classes('g-jc', 'justify-content');
+@include generate-grid-alignment-classes('g-ai', 'align-items');
+@include generate-grid-alignment-classes('g-ji', 'justify-items');
+
+
 // Default grid column (without breakpoint)
 @for $i from 1 through 12 {
   .col-#{$i} {

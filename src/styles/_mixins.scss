@@ -35,3 +35,9 @@
     background-color: $line-color;
   }
 }
+
+
+@mixin font-ternary {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  line-height: 1.5;
+}
