@@ -1,6 +1,8 @@
 # My Portfolio
 
-This repository contains the source code for my personal portfolio website. It showcases my work, education, certifications, and recommendations from colleagues. The site is built using React and TypeScript, with a focus on responsive design and clean, modular code.
+This repository contains the source code for my personal portfolio website. It showcases my work, education, certifications, and recommendations from colleagues. The site is built using React, TypeScript, SCSS modules, React Testing Library, and several other NPM modules see `package.json` for complete list.
+
+The focus of this project responsive design and clean, modular code, and scalabe architecture.
 
 ## Project Structure
 
@@ -26,6 +28,13 @@ To run the project locally, follow these steps:
 3. Run `npm start` to start the development server.
 4. Open your browser and navigate to `http://localhost:3000`.
 
+## Testing
+
+This project uses React Testing Library for testing components. To run the tests, follow these steps:
+
+1. Run `npm test` to execute the test suite.
+2. Press `a` to run all tests.
+
 ## Contributions
 
-Feel free to submit issues or pull requests if you find any bugs or have suggestions for improvements. Your contributions are always welcome!
+Feel free to submit issues or pull requests if you find any bugs or have suggestions for improvements. Your contributions are always welcome! 🙂
