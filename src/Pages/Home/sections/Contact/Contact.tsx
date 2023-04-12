@@ -3,18 +3,17 @@ import styles from './Contact.module.scss';
 
 const Contact: FC = () => {
   return (
-    <section className={styles.container} data-testid="contact">
-      <h2>Contact</h2>
+    <section className={`${styles.contactContainer}`} data-testid="contact">
+      <h2>Let's Connect & Create!</h2>
       <p>
-        I enjoy connecting with like-minded professionals and exploring exciting projects. If you're considering a collaboration or have an interesting project in mind, let's turn those ideas into reality!
+        I'm a <span className='ft-clr-3 ft-wt-extra-bold'>collaboration enthusiast</span> eager to connect and create remarkable projects. Ready to chat?
       </p>
-      <div className={styles.contactInfo}>
-        <div className={styles.email}>
-          <button className='button'>
-            <a style={{"color": 'white'}} href="mailto:your.rg3646aws@gmail.com">Get in Touch</a>
-          </button>
-        </div>
-      </div>
+      <p className={``}>
+        <strong><span className=''>Let's make magic happen!</span></strong>
+      </p>
+      <button className='button mt-md'>
+        <a href="mailto:your.email@example.com">Get in Touch</a>
+      </button>
     </section>
   );
 };
