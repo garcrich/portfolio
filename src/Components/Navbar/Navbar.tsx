@@ -24,6 +24,7 @@ const NavBar = () => {
     return () => {
       clearTimeout(hideUnderlayTimeout);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobileMenuOpen]);
   
   useEffect(() => {
