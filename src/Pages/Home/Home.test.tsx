@@ -40,10 +40,10 @@ describe('HomeComponent', () => {
     expect(screen.getByTestId('recommendations')).toBeInTheDocument()
   })
 
-  it('renders the Projects component', () => {
-    render(<Home />);
-    expect(screen.getByTestId('projects')).toBeInTheDocument()
-  })
+  // it('renders the Projects component', () => {
+  //   render(<Home />);
+  //   expect(screen.getByTestId('projects')).toBeInTheDocument()
+  // })
   
   it('renders the Contact component', () => {
     render(<Home />);

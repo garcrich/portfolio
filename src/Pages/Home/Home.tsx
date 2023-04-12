@@ -25,7 +25,8 @@ const Home:FC = () => {
         <Work />
         <EduAndCerts />
         <Recommendations />
-        <Projects /> {/*<- currently messing up mobile styles*/}
+        {/*<- currently messing up mobile styles*/}
+        {/* <Projects />  */}
         <Contact />
       </main>
       <Footer />
