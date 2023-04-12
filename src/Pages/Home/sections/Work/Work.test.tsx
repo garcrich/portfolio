@@ -10,6 +10,7 @@ describe("WorkComponent", () => {
   it("renders the correct number of Position components", () => {
     render(<Work />);
     const positionElements = screen.getAllByTestId("position");
-    expect(positionElements.length).toBe(5);
+    //only one as they are rendered in a tab
+    expect(positionElements.length).toBe(1);
   });
 });

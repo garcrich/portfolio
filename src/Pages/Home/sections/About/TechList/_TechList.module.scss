@@ -1,9 +1,11 @@
+@import '../../../../../styles/mixins';
+
 .techList {
   margin-top: var(--sp-md);
   li {
     margin-left: 0.9375rem;
     position: relative;
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    @include font-ternary;
     &::before {
       content: "•";
       position: absolute;
@@ -11,9 +13,6 @@
       top: 0.35rem;
       color: var(--logo-color-secondary);
       line-height: 12px;
-    }
-    &:not(:first-of-type) {
-      margin-top: var(--sp-sm);
     }
   }
 }

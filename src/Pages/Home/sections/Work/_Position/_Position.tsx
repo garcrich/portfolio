@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import styles from './_Position.module.scss';
-import profile from '../../../../../assets/images/profile.jpg';
 type PositionProps = {
   job: {
     company: string;
