@@ -15,13 +15,13 @@ type CertificationProps = {
 const Certification: FC<CertificationProps> = ({ title, description, certification, idx }) => {
   let isEvenElem = idx % 2 === 0;
   return (
-    <div className={`${styles.certContainer} grid ${idx !== 0 ? 'mt-xxxl' : 'mt-xl'} mt-0`} data-testid="certification">
+    <div className={`${styles.certContainer} grid ${idx !== 0 ? 'mt-xxxl' : 'mt-0'}`} data-testid="certification">
       <div className={`col-12`}>
         <h4 className='ft-clr-1 certTitle' style={{"textAlign" : `${isEvenElem ? 'left' : 'right'}`}}>{title}</h4>
         <div className={`grid mt-md ${!isEvenElem ? 'g-ji-end' : 'g-ji-start'}`}>
           
           <div 
-            style={{"order" : `${isEvenElem ? 0 : 1}`}}
+            style={{"order" : `${isEvenElem ? 0 : 1}`, "textAlign" : `${isEvenElem ? 'left' : 'right'}`}}
             className={`${styles.certificationDescriptionContainer} col-6`}
           >
             <p className={`${styles.certificationDescription} mt-0 mb-0`}>
@@ -30,7 +30,8 @@ const Certification: FC<CertificationProps> = ({ title, description, certificati
                 href={certification.verificationUrl}
                 rel="noreferrer"
                 target="_blank"
-                className={`button button-outline mt-sm ${styles.certificationButton}`}
+                className={`button button-outline mt-md ${styles.certificationButton}`}
+                style={{"marginLeft" : `${isEvenElem ? '' : 'auto'}`}}
               >
                 View certification
               </a>
@@ -42,7 +43,7 @@ const Certification: FC<CertificationProps> = ({ title, description, certificati
               src={certification.img} 
               alt={title} 
               style={{"justifySelf" : `${isEvenElem ? 'start' : 'end'}`}}
-              className={`${styles.certImg} ${!isEvenElem ? 'col-8': 'g-os-4'}`} />
+              className={`${styles.certImg} ${!isEvenElem ? 'col-7': 'g-os-5'}`} />
           </div>
         </div>
         </div>

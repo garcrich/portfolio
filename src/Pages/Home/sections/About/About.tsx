@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './About.module.scss';
 import profile from '../../../../assets/images/profile.jpg';
-import TechList from './TechList/_TechList';
+import TechList from './_TechList/_TechList';
 import techListData from './TechListData';
 
 const About: FC = () => {
