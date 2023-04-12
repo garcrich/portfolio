@@ -1,8 +1,7 @@
 @import '../../../../../styles/mixins';
 
-.positionContainer {
-  // border: 3px dotted red;
-  
+.positionContainer { 
+  min-height: 361px;
 }
 
 .companyImg {
@@ -11,7 +10,6 @@
 
 .descriptionList {
   max-width: 450px;
-  min-height: 250px;
   li {
     margin-left: 0.9375rem;
     position: relative;

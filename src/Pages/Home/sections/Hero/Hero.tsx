@@ -16,7 +16,7 @@ const Header:FC = () => {
       
 
       <p className={`${styles.description} mt-sm`}>With a passion for creating accessible, high-performing websites and a knack for problem-solving, I thrive on turning innovative ideas into digital reality.</p>
-      <button className={`${styles.ctaButton} mt-lg button`}>View My Work</button>
+      <button className={`${styles.ctaButton} mt-md button`}>Learn About Me</button>
     </div>
   </section>
   )
