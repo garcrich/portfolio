@@ -3,8 +3,7 @@ import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
-    <footer className={styles.container} data-testid="footer">
-      <h2 className={styles.title}>Footer</h2>
+    <footer className={styles.footer} data-testid="footer">
       <p>Linkedin</p>
       <p>GitHub</p>
       <p>Email</p>
