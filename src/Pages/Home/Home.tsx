@@ -9,7 +9,7 @@ import Work from './sections/Work/Work';
 import EduAndCerts from './sections/EducationAndCertifications/EduAndCerts';
 import Recommendations from './sections/Recommendations/Recommendations';
 import Contact from './sections/Contact/Contact';
-import Projects from './sections/Projects/Projects';
+// import Projects from './sections/Projects/Projects';
 import NavBar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import { FC } from 'react';
