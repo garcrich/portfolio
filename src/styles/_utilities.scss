@@ -3,7 +3,7 @@
 
 
 .section-spacing {
-  margin-bottom: 4rem; // Adjust the value as needed to get the desired spacing
+  margin-bottom: 8rem; // Adjust the value as needed to get the desired spacing
 }
 // Utility class generator for margin and padding
 @mixin generate-spacing-classes($property, $directions, $property-name, $sizes) {

@@ -1,12 +1,14 @@
-import { FC } from 'react';
+import { FC } from 'react'
 import styles from './Hero.module.scss'
 import HeroLogo from './HeroLogo'
 
 const Header:FC = () => {
+
   return (
   <section className={styles.heroContainer} data-testid="hero">
-    <div className={styles.contentContainer}>
-      <h3 className={`ft-wt-norm mb-0`}>Hey there, I'm</h3>
+      <div className={styles.contentContainer}>
+
+        <h3 className={`ft-wt-norm mb-0`}>Hey there, I'm</h3>
       <h1 className={`${styles.name} mt-0 mb-0`}>Ricky Garcia</h1>
       <h2 className={`${styles.location} mt-sm mb-0`}>Your very own Salt Lake City-based</h2>
       <div className={`${styles.titleContainer} mt-0`}>
