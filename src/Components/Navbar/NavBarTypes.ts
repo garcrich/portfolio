@@ -3,9 +3,9 @@ export type MenuData = {
   work: string;
   // projects: string;
   contact: string;
-  Recommendations: string;
-  Credentials: string;
-  Resume: {
+  recommendations: string;
+  credentials: string;
+  resume: {
     title: string;
     link: string;
   };

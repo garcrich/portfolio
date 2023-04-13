@@ -4,9 +4,9 @@ const menuData: MenuData = {
   about: "About",
   work: "Work",
   contact: "Contact",
-  Recommendations: "Recommendations",
-  Credentials: "Credentials",
-  Resume: {
+  recommendations: "Recommendations",
+  credentials: "Credentials",
+  resume: {
     title: "Resume",
     link: "Resume-Ricky-Garcia.pdf",
   },

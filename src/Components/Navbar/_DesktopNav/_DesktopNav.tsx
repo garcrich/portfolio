@@ -9,24 +9,23 @@ type DesktopNavProps = {
 const DesktopNav:FC<DesktopNavProps> = ({menuItems}) => {
 
   return (
-      <ul className={styles.desktopMenu} data-testid="desktop-nav">
-
-        <li><a href="#about">{menuItems.about}</a></li>
-        <li><a href="#work">{menuItems.work}</a></li>
-        <li><a href="#credentials">{menuItems.Credentials}</a></li>
-        <li><a href="#recommendations">{menuItems.Recommendations}</a></li>
-        <li><a href="#contact">{menuItems.contact}</a></li>
-        <li>
-          <a
-            className={`${styles.buttonLink} button button-outline`}
-            href={`/${menuItems.Resume.link}`}
-            target="_blank"
-            rel="noreferrer" 
-          >
-              {menuItems.Resume.title}
-          </a>
-        </li>
-      </ul>
+    <ul className={styles.desktopMenu} data-testid="desktop-nav">
+      <li><a href="#about">{menuItems.about}</a></li>
+      <li><a href="#work">{menuItems.work}</a></li>
+      <li><a href="#credentials">{menuItems.credentials}</a></li>
+      <li><a href="#recommendations">{menuItems.recommendations}</a></li>
+      <li><a href="#contact">{menuItems.contact}</a></li>
+      <li>
+        <a
+          className={`${styles.buttonLink} button button-outline`}
+          href={`/${menuItems.resume.link}`}
+          target="_blank"
+          rel="noreferrer" 
+        >
+            {menuItems.resume.title}
+        </a>
+      </li>
+    </ul>
   )
 }
 
