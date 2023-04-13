@@ -1,4 +1,22 @@
 .footer {
   display: flex;
-  background-color: var(--logo-color-primary);
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding-bottom: 1.5rem;
+  width: 100%;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+  color: var(--text-color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.5rem;
+  &:hover {
+    color: var(--text-color-secondary);
+  }
 }
