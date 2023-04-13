@@ -13,10 +13,9 @@ const DesktopNav:FC<DesktopNavProps> = ({menuItems}) => {
 
         <li><a href="#about">{menuItems.about}</a></li>
         <li><a href="#work">{menuItems.work}</a></li>
-        <li><a href="#projects">{menuItems.projects}</a></li>
+        <li><a href="#credentials">{menuItems.Credentials}</a></li>
         <li><a href="#recommendations">{menuItems.Recommendations}</a></li>
         <li><a href="#contact">{menuItems.contact}</a></li>
-        <li><a href="#credentials">{menuItems.Credentials}</a></li>
         <li>
           <a
             className={`${styles.buttonLink} button button-outline`}

@@ -25,10 +25,9 @@ const MobileNav:FC<MobileNavProps> = ({menuItems, isMobileMenuOpen, setIsMobileM
       <ul className={styles.mobileMenu} data-testid='mobile-nav'>
           <li onClick={() => handleNavClick('about')}>{menuItems.about}</li>
           <li onClick={() => handleNavClick('work')}>{menuItems.work}</li>
-          <li onClick={() => handleNavClick('projects')}>{menuItems.projects}</li>
+          <li onClick={() => handleNavClick('credentials')}>{menuItems.Credentials}</li>
           <li onClick={() => handleNavClick('recommendations')}>{menuItems.Recommendations}</li>
           <li onClick={() => handleNavClick('contact')}>{menuItems.contact}</li>
-          <li onClick={() => handleNavClick('credentials')}>{menuItems.Credentials}</li>
           <li>
             <a 
               href={`/${menuItems.Resume.link}`}
