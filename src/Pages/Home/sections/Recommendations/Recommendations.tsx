@@ -15,7 +15,7 @@ const Recommendations: FC = () => {
     setSlides(slideBuilder(2, recommendationsData));
   }, []);
   return (
-    <section className={`section-spacing mt-xxxl`} data-testid="recommendations">
+    <section className={`section-spacing mt-xxxl`} data-testid="recommendations" id="Recommendations">
       <h2 className={styles.title}>Endorsements from Industry Peers</h2>
       {slides.length > 0 &&
         <Carousel

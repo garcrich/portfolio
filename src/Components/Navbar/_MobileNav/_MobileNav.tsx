@@ -1,6 +1,7 @@
 import { Dispatch, FC } from 'react';
 import styles from './_MobileNav.module.scss';
 import { MenuData } from '../NavBarTypes';
+import { Link as ScrollLink } from 'react-scroll';
 
 type MobileNavProps = {
   menuItems: MenuData;
@@ -8,11 +9,10 @@ type MobileNavProps = {
   setIsMobileMenuOpen: Dispatch<React.SetStateAction<boolean>>
 }
 
-const MobileNav:FC<MobileNavProps> = ({menuItems, isMobileMenuOpen, setIsMobileMenuOpen}) => {
+const MobileNav: FC<MobileNavProps> = ({ menuItems, isMobileMenuOpen, setIsMobileMenuOpen }) => {
 
 
-  const handleNavClick = (target: string) => {
-
+  const handleNavClick = () => {
     setIsMobileMenuOpen(false);
   };
 
@@ -23,20 +23,83 @@ const MobileNav:FC<MobileNavProps> = ({menuItems, isMobileMenuOpen, setIsMobileM
       </button>
 
       <ul className={styles.mobileMenu} data-testid='mobile-nav'>
-          <li onClick={() => handleNavClick('about')}>{menuItems.about}</li>
-          <li onClick={() => handleNavClick('work')}>{menuItems.work}</li>
-          <li onClick={() => handleNavClick('credentials')}>{menuItems.credentials}</li>
-          <li onClick={() => handleNavClick('recommendations')}>{menuItems.recommendations}</li>
-          <li onClick={() => handleNavClick('contact')}>{menuItems.contact}</li>
-          <li>
-            <a 
-              href={`/${menuItems.resume.link}`}
-              target='_blank'
-              rel='noreferrer' 
-            >
-                {menuItems.resume.title}
-            </a>
-          </li>
+        <li>
+          <ScrollLink
+            to="About"
+            activeClass={styles.active}
+            smooth={true}
+            offset={-120}
+            duration={500}
+            spy={true}
+            hashSpy={true}
+            onClick={handleNavClick}
+          >
+            {menuItems.about}
+          </ScrollLink>
+        </li>
+        <li>
+          <ScrollLink
+            to="Work"
+            activeClass={styles.active}
+            smooth={true}
+            offset={-120}
+            duration={500}
+            spy={true}
+            hashSpy={true}
+            onClick={handleNavClick}
+          >
+            {menuItems.work}
+          </ScrollLink></li>
+        <li>
+          <ScrollLink
+            to="EducAndCerts"
+            activeClass={styles.active}
+            smooth={true}
+            offset={-120}
+            duration={500}
+            spy={true}
+            hashSpy={true}
+            onClick={handleNavClick}
+          >
+            {menuItems.credentials}
+          </ScrollLink></li>
+        <li>
+          <ScrollLink
+            to="Recommendations"
+            activeClass={styles.active}
+            smooth={true}
+            offset={-120}
+            duration={500}
+            spy={true}
+            hashSpy={true}
+            onClick={handleNavClick}
+          >
+            {menuItems.recommendations}
+          </ScrollLink>
+        </li>
+        <li>
+          <ScrollLink
+            to="Contact"
+            activeClass={styles.active}
+            smooth={true}
+            offset={-120}
+            duration={500}
+            spy={true}
+            hashSpy={true}
+            onClick={handleNavClick}
+          >
+            {menuItems.contact}
+          </ScrollLink>
+        </li>
+        <li>
+          <a
+            href={`/${menuItems.resume.link}`}
+            target='_blank'
+            rel='noreferrer'
+          >
+            {menuItems.resume.title}
+          </a>
+        </li>
       </ul>
     </div>
   )

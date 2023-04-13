@@ -1,11 +1,28 @@
 import { FC } from 'react'
 import styles from './Hero.module.scss'
 import HeroLogo from './HeroLogo'
+import { useInView } from '@react-spring/web'
+
+const refAnimationProps = {
+  from: {
+    opacity: 0,
+    y: 50,
+  },
+  to: {
+    opacity: 1,
+    y: 0,
+  },
+}
+
+const intersectionArgs = { rootMargin: '0% 0%', threshold: 0.30, once: true }
 
 const Header:FC = () => {
 
+  const [heroRef, springs] = useInView(() => (refAnimationProps), intersectionArgs)
+
   return (
-  <section className={styles.heroContainer} data-testid="hero">
+  <section className={styles.heroContainer} data-testid="hero" id="Hero">
+         
       <div className={styles.contentContainer}>
 
         <h3 className={`ft-wt-norm mb-0`}>Hey there, I'm</h3>

@@ -6,6 +6,7 @@ import styles from './Navbar.module.scss';
 import DesktopNav from './_DesktopNav/_DesktopNav';
 import MobileNav from './_MobileNav/_MobileNav';
 import { useMediaQuery } from 'react-responsive'
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -41,10 +42,16 @@ const NavBar = () => {
 
   return (
     <nav className={`${styles.navContainer}`} data-testid='navbar'>
-      <a href='/#'>
+      <ScrollLink
+        activeClass="active"
+        to="Hero"
+        smooth={true}
+        offset={-100}
+        duration={500}
+        hashSpy={true}
+      >
         <img src={logo} className={styles.logo} alt='logo' />
-      </a>
-
+      </ScrollLink>
       <button
         className={styles.mobileMenuIcon}
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

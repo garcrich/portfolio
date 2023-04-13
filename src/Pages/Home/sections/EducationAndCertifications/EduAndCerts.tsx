@@ -7,7 +7,7 @@ import Education from './_Education/_Education'
 const EduAndCerts:FC = () => {
   const eduAndCertsRef = useRef<HTMLDivElement>(null);
   return (
-    <section className={`section-spacing ${styles.eduCertsContainer}`} ref={eduAndCertsRef}  data-testid="edu-and-certs">
+    <section className={`section-spacing ${styles.eduCertsContainer}`} ref={eduAndCertsRef}  data-testid="edu-and-certs" id="EduAndCerts">
       <h2 className={styles.title}>Credentials</h2>
 
       <Education/>

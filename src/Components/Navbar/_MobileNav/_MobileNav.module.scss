@@ -13,7 +13,8 @@
   overflow: hidden;
   li {
     cursor: pointer;
-    &:hover {
+    font-size: 1.25rem;
+    a.active {
       color: var(--logo-color-secondary);
     }
   }

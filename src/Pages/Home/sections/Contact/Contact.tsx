@@ -3,7 +3,7 @@ import styles from './Contact.module.scss';
 
 const Contact: FC = () => {
   return (
-    <section className={`${styles.contactContainer}`} data-testid="contact">
+    <section className={`${styles.contactContainer}`} data-testid="contact" id="Contact">
       <div className={`${styles.contactContent} section-spacing`}>
         <h2>Let's Connect & Create!</h2>
         <p>

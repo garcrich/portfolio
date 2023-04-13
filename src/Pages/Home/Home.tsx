@@ -30,36 +30,24 @@ const intersectionArgsEduCerts = { rootMargin: '0% 0%', threshold: 0.05, once: t
 
 
 const Home: FC = () => {
-  const [ref1, springs] = useInView(() => (refAnimationProps), intersectionArgs)
-  const [ref2, springs2] = useInView(() => (refAnimationProps), intersectionArgs)
-  const [ref3, springs3] = useInView(() => (refAnimationProps), intersectionArgs)
-  const [ref4, springs4] = useInView(() => (refAnimationProps), intersectionArgsEduCerts)
-  const [ref5, springs5] = useInView(() => (refAnimationProps), intersectionArgs)
-  const [ref6, springs6] = useInView(() => (refAnimationProps), intersectionArgs)
+  const [heroRef, springs] = useInView(() => (refAnimationProps), intersectionArgs)
+  const [aboutRef, aboutSprings] = useInView(() => (refAnimationProps), intersectionArgs)
+  const [workRef, workSprings] = useInView(() => (refAnimationProps), intersectionArgs)
+  const [eduRef, eduSprings] = useInView(() => (refAnimationProps), intersectionArgsEduCerts)
+  const [recRef, recSprings] = useInView(() => (refAnimationProps), intersectionArgs)
+  const [contactRef, contactSprings] = useInView(() => (refAnimationProps), intersectionArgs)
 
 
   return (
     <div data-testid='home'>
       <NavBar />
       <main className={styles.contentContainer}>
-        <animated.div ref={ref1} style={springs}>
           <Hero />
-        </animated.div>
-        <animated.div ref={ref2} style={springs2}>
           <About />
-        </animated.div>
-        <animated.div ref={ref3} style={springs3}>
           <Work />
-        </animated.div>
-        <animated.div ref={ref4} style={springs4}>
           <EduAndCerts />
-        </animated.div>
-        <animated.div ref={ref5} style={springs5}>
           <Recommendations />
-        </animated.div>
-        <animated.div ref={ref6} style={springs6}>
           <Contact />
-        </animated.div>
       </main>
       <Footer />
     </div>
