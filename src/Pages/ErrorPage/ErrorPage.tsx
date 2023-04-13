@@ -9,8 +9,7 @@ const ErrorPage:FC = () => {
   <section className={styles.errorPageContainer} data-testid="error-page">
     <h1>Ooops! That's illegal!</h1>
     <iframe title="illegal" src="https://giphy.com/embed/f8lDluiWJ7yQTtdS3L" width="480" height="270" frameBorder="0" className="giphy-embed" allowFullScreen></iframe>
-    <button className={`button ${styles.errorBtn}`}><Link to={`/`}>Return to home</Link></button>
-    
+    <button className={`button ${styles.errorBtn} mt-md`}><Link to={`/`}>Return to home</Link></button>
   </section>
   )
 }
