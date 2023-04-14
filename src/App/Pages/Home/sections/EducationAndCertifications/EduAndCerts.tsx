@@ -1,7 +1,7 @@
 import Certification from './_Certifications/_Certification'
 import styles from './EduAndCerts.module.scss'
 import { certifications } from './certificationData'
-import { FC, useRef } from 'react'
+import { FC } from 'react'
 import Education from './_Education/_Education'
 import { GobalSectionRootMargin, gobalFromSectionTranslateY, gobalSectionDelay, gobalSectionDuration, gobalToSectionTranslateY } from '../../../_utilities/animationConfigs'
 import { animated, useInView } from '@react-spring/web'
