@@ -1,25 +1,25 @@
 import { FC } from 'react'
 import styles from './Hero.module.scss'
 import HeroLogo from './HeroLogo'
-import { useInView } from '@react-spring/web'
+// import { useInView } from '@react-spring/web'
 import { Link as ScrollLink } from 'react-scroll'
 
-const refAnimationProps = {
-  from: {
-    opacity: 0,
-    y: 50,
-  },
-  to: {
-    opacity: 1,
-    y: 0,
-  },
-}
+// const refAnimationProps = {
+//   from: {
+//     opacity: 0,
+//     y: 50,
+//   },
+//   to: {
+//     opacity: 1,
+//     y: 0,
+//   },
+// }
 
-const intersectionArgs = { rootMargin: '0% 0%', threshold: 0.30, once: true }
+// const intersectionArgs = { rootMargin: '0% 0%', threshold: 0.30, once: true }
 
 const Header:FC = () => {
 
-  const [heroRef, springs] = useInView(() => (refAnimationProps), intersectionArgs)
+  // const [heroRef, springs] = useInView(() => (refAnimationProps), intersectionArgs)
 
   return (
   <section className={styles.heroContainer} data-testid="hero" id="Hero">

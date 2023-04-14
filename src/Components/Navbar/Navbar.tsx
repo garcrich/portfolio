@@ -6,7 +6,7 @@ import styles from './Navbar.module.scss';
 import DesktopNav from './_DesktopNav/_DesktopNav';
 import MobileNav from './_MobileNav/_MobileNav';
 import { useMediaQuery } from 'react-responsive'
-import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);

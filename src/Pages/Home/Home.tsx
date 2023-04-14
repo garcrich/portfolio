@@ -11,19 +11,19 @@ import Contact from './sections/Contact/Contact';
 import NavBar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
 import { FC } from 'react';
-import { useInView, animated } from '@react-spring/web'
+// import { useInView, animated } from '@react-spring/web'
 import styles from './Home.module.scss';
 
-const refAnimationProps = {
-  from: {
-    opacity: 0,
-    y: 50,
-  },
-  to: {
-    opacity: 1,
-    y: 0,
-  },
-}
+// const refAnimationProps = {
+//   from: {
+//     opacity: 0,
+//     y: 50,
+//   },
+//   to: {
+//     opacity: 1,
+//     y: 0,
+//   },
+// }
 
 // const intersectionArgs = { rootMargin: '0% 0%', threshold: 0.30, once: true }
 // const intersectionArgsEduCerts = { rootMargin: '0% 0%', threshold: 0.05, once: true }
