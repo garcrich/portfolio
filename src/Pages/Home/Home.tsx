@@ -40,7 +40,7 @@ const Home: FC = () => {
           <Work />
           <EduAndCerts />
           <Recommendations />
-          {/* <Contact /> */}
+          <Contact />
       </main>
       <Footer />
     </div>
