@@ -1,15 +1,17 @@
 @import "../../../../styles/mixins";
 
-p {
-  margin-top: var(--sp-md);
-}
-
-ul {
-  padding-left: 0;
-}
-
-li {
-  margin-top: var(--sp-xs);
+.container {
+  p {
+    margin-top: var(--sp-md);
+  }
+  
+  ul {
+    padding-left: 0;
+  }
+  
+  li {
+    margin-top: var(--sp-xs);
+  }
 }
 
 .title {
