@@ -4,6 +4,12 @@
   --work-panel-transition-setting: opacity .75s;
 }
 
+.workContainer {
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .tabList {
   display: flex;
   cursor: pointer;
