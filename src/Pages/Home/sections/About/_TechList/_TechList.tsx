@@ -7,7 +7,7 @@ interface TechListProps {
 
 const TechList: FC<TechListProps> = ({ title, items }) => {
   return (
-    <li className={`col-4`} data-testid="tech-list">
+    <li className={`col-4 col-6-mb`} data-testid="tech-list">
       <h4>{title}</h4>
       <ul className={`ft-wt-norm ${styles.techList}`}>
         {items.map((item) => (

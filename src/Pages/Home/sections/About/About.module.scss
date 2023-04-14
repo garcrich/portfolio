@@ -20,6 +20,12 @@ li {
 
 .techHeader {
   @include header-line(-12.5px, 300px, 105px, var(--text-color-tertiary));
+  @include tablet {
+    @include header-line(-12.5px, 60%, 105px, var(--text-color-tertiary));
+  }
+  @include mobile {
+    @include header-line(-12.5px, 45%, 105px, var(--text-color-tertiary));
+  }
 }
 
 .techStackList {
@@ -35,6 +41,7 @@ li {
   overflow: hidden;
   display: flex;
   align-items: baseline;
+  justify-items: center;
 }
 
 .diamond {
@@ -42,10 +49,13 @@ li {
   z-index: -1;
   width: 100%;
   overflow: hidden;
-  transform: rotate(45deg) scale(.65);
+  transform: rotate(45deg) scale(.65) translate(20px, -20px);
   border: 7.5px solid var(--text-color-primary);
   border-radius: 25px;
   box-shadow: 0 0 10px 10px var(--logo-color-secondary);
+  @include tabletAndDown {
+    transform: rotate(45deg) scale(.5);
+  }
   .profile {
     transform: rotate(-45deg) scale(1.5) translateY(4%);
     max-width: 100%;

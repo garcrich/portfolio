@@ -7,7 +7,7 @@ import techListData from './TechListData';
 const About: FC = () => {
   return (
     <section className={`${styles.container} grid section-spacing`} data-testid="about" id="About">
-      <div className={`col-6`}>
+      <div className={`col-6 col-12-tbd order-1-tbd`}>
         <h2 className={`${styles.title}`}>About Me</h2>
         <p>I'm a senior frontend engineer specializing in captivating digital experiences using technologies like React, TypeScript, and SCSS. My expertise extends to .NET environments and cloud computing.</p> 
         
@@ -26,9 +26,9 @@ const About: FC = () => {
         ))}
         </ul>
       </div>
-      <div className={`col-6`}>
+      <div className={`col-6 col-12-tbd order-0-tbd`}>
       <div className={`${styles.aspectRatioWrapper}`}>
-        <div className={`${styles.diamond} ml-sm`}>
+        <div className={`${styles.diamond} ml-dt`}>
           <img className={`${styles.profile}`} src={profile} alt="profile of Ricky Garcia" />
         </div>
       </div>

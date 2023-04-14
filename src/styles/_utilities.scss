@@ -119,12 +119,42 @@ $directions: (
   @include generate-responsive-columns('dt');
 }
 
+@include tabletAndDown {
+  @include generate-responsive-columns('tbd');
+}
+
 @include tablet {
   @include generate-responsive-columns('tb');
 }
 
 @include mobile {
   @include generate-responsive-columns('mb');
+}
+
+// Generate order classes
+@mixin generate-order-classes($breakpoint) {
+  @for $i from 0 through 12 {
+    .order-#{$i}-#{$breakpoint} {
+      order: $i;
+    }
+  }
+}
+
+
+@include desktop {
+  @include generate-order-classes('dt');
+}
+
+@include tabletAndDown {
+  @include generate-order-classes('tbd');
+}
+
+@include tablet {
+  @include generate-order-classes('tb');
+}
+
+@include mobile {
+  @include generate-order-classes('mb');
 }
 
 // Grid gutters
@@ -203,6 +233,36 @@ $gutters: (
 @include mobile {
   @include generate-offset-classes('mb');
 }
+
+// Generate negative offset utility classes
+@mixin generate-negative-offset-classes($breakpoint) {
+  @for $i from 1 through 11 {
+    .g-os-neg-#{$breakpoint}-#{$i} {
+      margin-left: -(100% / 12 * $i);
+    }
+  }
+}
+
+// Default negative offset (without breakpoint)
+@for $i from 1 through 11 {
+  .g-os-neg-#{$i} {
+    margin-left: -(100% / 12 * $i);
+  }
+}
+
+// Generate responsive negative offset classes for each breakpoint
+@include desktop {
+  @include generate-negative-offset-classes('dt');
+}
+
+@include tablet {
+  @include generate-negative-offset-classes('tb');
+}
+
+@include mobile {
+  @include generate-negative-offset-classes('mb');
+}
+
 
 
 // Add a mixin to generate font classes
