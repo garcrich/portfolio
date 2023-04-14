@@ -43,10 +43,10 @@ const Header: FC = () => {
           <div className={`${styles.titleContainer} mt-0`}>
             <animated.h2 className={`${styles.title} mt-0 mb-0`} style={titleSpring}>
               <strong className="ft-clr-2">frontend engineer</strong>.
+              <animated.span style={logoAnimation} className={styles.heroLogoContainer}>
+                <HeroLogo />
+              </animated.span>
             </animated.h2>
-            <animated.span style={logoAnimation}>
-              <HeroLogo />
-            </animated.span>
           </div>
 
           <animated.p style={descriptionSpring}  className={`${styles.description} mt-sm`}>With a passion for creating accessible, high-performing websites and a knack for problem-solving, I thrive on turning innovative ideas into digital reality.</animated.p>

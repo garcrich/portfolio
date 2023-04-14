@@ -50,6 +50,12 @@
   align-items: baseline;
 }
 
+.heroLogoContainer {
+  @include mobile {
+    display: none;
+  }
+}
+
 .heroLogo {
   display: inline-block;
   width: 25px;
