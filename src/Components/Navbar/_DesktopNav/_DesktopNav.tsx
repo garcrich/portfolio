@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './_DesktopNav.module.scss';
 import { MenuData } from '../NavBarTypes';
-import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 type DesktopNavProps = {
   menuItems: MenuData;
 }
