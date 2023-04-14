@@ -66,14 +66,13 @@ img {
   }
 
   // Responsive adjustments for tablet devices
-  @include tablet {
+  @include tabletAndDown {
     font-size: 0.9rem;
     padding: 10px 20px;
   }
 
   // Responsive adjustments for mobile devices
   @include mobile {
-    font-size: 0.8rem;
     padding: 8px 16px;
   }
 }

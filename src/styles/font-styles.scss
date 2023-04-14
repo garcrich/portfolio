@@ -118,7 +118,20 @@ p {
   font-size: 1.25rem; // 16px
   line-height: 1.5;
   color: var(--text-color-primary);
+
+  @include mobile {
+    font-size: 1rem; // 16px
+  }
+
+  @include tablet {
+    font-size: 1.125rem; // 18px
+  }
+
+  @include desktop {
+    font-size: 1.25rem; // 20px
+  }
 }
+
 
 ul, ol {
   font-size: 1rem; // 16px
