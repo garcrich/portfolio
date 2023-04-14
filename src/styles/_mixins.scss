@@ -1,17 +1,24 @@
 @import './variables';
 
-// Breakpoints
+// Import variables
+@import './variables';
 
 // Desktop styles
 @mixin desktop {
-  @media only screen and (max-width: $breakpoint-desktop) {
+  @media only screen and (min-width: $breakpoint-desktop) {
     @content;
   }
 }
 
 // Tablet styles
 @mixin tablet {
-  @media only screen and (max-width: $breakpoint-tablet) {
+  @media only screen and (min-width: $breakpoint-mobile + 1) and (max-width: $breakpoint-desktop - 1) {
+    @content;
+  }
+}
+
+@mixin tabletAndDown {
+  @media only screen and (max-width: $breakpoint-desktop - 1) {
     @content;
   }
 }

@@ -1,31 +1,89 @@
+// Import your mixins here
+@import 'mixins';
 
-
+// Typography styles
 h1 {
-  font-size: 2.5rem; // 40px
+  @include mobile {
+    font-size: 2rem; // 32px
+  }
+  @include tablet {
+    font-size: 2.25rem; // 36px
+  }
+  @include desktop {
+    font-size: 2.5rem; // 40px
+  }
 }
 
 h2 {
-  font-size: 2rem; // 32px
+  @include mobile {
+    font-size: 1.5rem; // 24px
+  }
+  @include tablet {
+    font-size: 1.75rem; // 28px
+  }
+  @include desktop {
+    font-size: 2rem; // 32px
+  }
 }
 
 h3 {
-  font-size: 1.75rem; // 28px
+  @include mobile {
+    font-size: 1.25rem; // 20px
+  }
+  @include tablet {
+    font-size: 1.5rem; // 24px
+  }
+  @include desktop {
+    font-size: 1.75rem; // 28px
+  }
 }
 
 h4 {
-  font-size: 1.5rem; // 24px
+  @include mobile {
+    font-size: 1rem; // 16px
+  }
+  @include tablet {
+    font-size: 1.25rem; // 20px
+  }
+  @include desktop {
+    font-size: 1.5rem; // 24px
+  }
 }
 
 h5 {
-  font-size: 1.25rem; // 20px
+  @include mobile {
+    font-size: 0.875rem; // 14px
+  }
+  @include tablet {
+    font-size: 1rem; // 16px
+  }
+  @include desktop {
+    font-size: 1.25rem; // 20px
+  }
 }
 
 h6 {
-  font-size: 1rem; // 16px
+  @include mobile {
+    font-size: 0.75rem; // 12px
+  }
+  @include tablet {
+    font-size: 0.875rem; // 14px
+  }
+  @include desktop {
+    font-size: 1rem; // 16px
+  }
 }
 
 ul, ol {
-  font-size: 1rem; // 16px
+  @include mobile {
+    font-size: 0.875rem; // 14px
+  }
+  @include tablet {
+    font-size: 1rem; // 16px
+  }
+  @include desktop {
+    font-size: 1rem; // 16px
+  }
 }
 
 h1, h2, h3, h4, h5, h6, ul, ol {
@@ -52,7 +110,6 @@ ul:first-child,
 ol:first-child {
   margin-top: 0;
 }
-
 
 p {
   letter-spacing: .005rem;
