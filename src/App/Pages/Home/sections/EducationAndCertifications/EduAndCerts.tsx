@@ -3,11 +3,21 @@ import styles from './EduAndCerts.module.scss'
 import { certifications } from './certificationData'
 import { FC, useRef } from 'react'
 import Education from './_Education/_Education'
+import { GobalSectionRootMargin, gobalFromSectionTranslateY, gobalSectionDelay, gobalSectionDuration, gobalToSectionTranslateY } from '../../../_utilities/animationConfigs'
+import { animated, useInView } from '@react-spring/web'
 
 const EduAndCerts:FC = () => {
-  const eduAndCertsRef = useRef<HTMLDivElement>(null);
+
+  const [eduCertRef, eduCertSpring] = useInView(() => ({
+    from: { opacity: 0, transform: gobalFromSectionTranslateY },
+    to: { opacity: 1, transform: gobalToSectionTranslateY },
+    delay: gobalSectionDelay,
+    config: { duration: gobalSectionDuration }
+  }), {rootMargin: GobalSectionRootMargin})
+  
   return (
-    <section className={`section-spacing ${styles.eduCertsContainer}`} ref={eduAndCertsRef}  data-testid="edu-and-certs" id="EduAndCerts">
+    <animated.section style={eduCertSpring} ref={eduCertRef} className={`section-spacing ${styles.eduCertsContainer}`}  data-testid="edu-and-certs" id="EduAndCerts">
+
       <h2 className={styles.title}>Credentials</h2>
 
       <Education/>
@@ -24,7 +34,7 @@ const EduAndCerts:FC = () => {
           />
         ))}
       </div>
-    </section>
+    </animated.section>
   )
 }
 

@@ -4,23 +4,22 @@ import profile from '../../../../../assets/images/profile.jpg';
 import TechList from './_TechList/_TechList';
 import techListData from './TechListData';
 import { animated, useInView } from '@react-spring/web';
-
-
+import { globalToSectionTranslateX1, globalToSectionTranslateX2, globalToSectionTranslateX3, globalToSectionTranslateX4, gobalSectionDelay, gobalSectionDuration, GobalSectionRootMargin, } from '../../../_utilities/animationConfigs';
 
 const About: FC = () => {
   const [articleRef, articleSpring] = useInView(() => ({
-    from: { opacity: 0, transform: 'translateX(-10px)' },
-    to: { opacity: 1, transform: 'translateY(0px)' },
-    delay: 150,
-    config: { duration: 250 }
-  }), {rootMargin: '-40% 0%'})
+    from: { opacity: 0, transform: globalToSectionTranslateX1 },
+    to: { opacity: 1, transform: globalToSectionTranslateX2 },
+    delay: gobalSectionDelay,
+    config: { duration: gobalSectionDuration }
+  }), {rootMargin: GobalSectionRootMargin})
 
   const [imgRef, imageSpring] = useInView(() => ({
-    from: { opacity: 0, transform: 'translateX(10px)' },
-    to: { opacity: 1, transform: 'translateY(0px)' },
-    delay: 150,
-    config: { duration: 250 }
-  }), {rootMargin: '-40% 0%'})
+    from: { opacity: 0, transform: globalToSectionTranslateX3 },
+    to: { opacity: 1, transform: globalToSectionTranslateX4 },
+    delay: gobalSectionDelay,
+    config: { duration: gobalSectionDuration }
+  }), {rootMargin: GobalSectionRootMargin})
 
   return (
     <section className={`${styles.container} grid section-spacing`} data-testid="about" id="About">

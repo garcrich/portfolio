@@ -3,11 +3,22 @@ import styles from './Work.module.scss';
 import Position from './_Position/_Position';
 import workHistoryData from './workHistoryData';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { animated, useInView } from '@react-spring/web';
+import { gobalSectionDelay, gobalSectionDuration, GobalSectionRootMargin, gobalFromSectionTranslateY, gobalToSectionTranslateY  } from '../../../_utilities/animationConfigs';
 
 const Work: FC = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0)
+
+  const [workHistRef, workHistSpring] = useInView(() => ({
+    from: { opacity: 0, transform: gobalFromSectionTranslateY },
+    to: { opacity: 1, transform: gobalToSectionTranslateY },
+    delay: gobalSectionDelay,
+    config: { duration: gobalSectionDuration }
+  }), {rootMargin: GobalSectionRootMargin})
+
+
   return (
-    <section className={`section-spacing ${styles.workContainer}`} data-testid="work" id="Work">
+    <animated.section ref={workHistRef} style={workHistSpring} className={`section-spacing ${styles.workContainer}`} data-testid="work" id="Work">
       <h2 className={styles.title}>Work History</h2>
 
       <Tabs onSelect={(index) => setActiveIdx(index)}>
@@ -30,7 +41,7 @@ const Work: FC = () => {
           </TabPanel>
         ))}
       </Tabs>
-    </section>
+    </animated.section>
   );
 };
 
