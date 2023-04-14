@@ -23,6 +23,12 @@
   }
 }
 
+@mixin lgMobile {
+  @media only screen and (max-width:$breakpoint-lg-mobile) {
+    @content;
+  }
+}
+
 // Mobile styles
 @mixin mobile {
   @media only screen and (max-width: $breakpoint-mobile) {

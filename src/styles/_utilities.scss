@@ -12,23 +12,15 @@
       .#{$property}#{$direction}-#{$suffix} {
         #{$property-name}-#{$full-direction}: #{$size};
       }
+    }
+  }
+}
 
-      @include desktop {
-        .#{$property}#{$direction}-#{$suffix}-dt {
-          #{$property-name}-#{$full-direction}: #{$size};
-        }
-      }
-
-      @include tablet {
-        .#{$property}#{$direction}-#{$suffix}-tb {
-          #{$property-name}-#{$full-direction}: #{$size};
-        }
-      }
-
-      @include mobile {
-        .#{$property}#{$direction}-#{$suffix}-mb {
-          #{$property-name}-#{$full-direction}: #{$size};
-        }
+@mixin generate-spacing-classes-responsive($property, $directions, $property-name, $sizes, $breakpoint) {
+  @each $suffix, $size in $sizes {
+    @each $direction, $full-direction in $directions {
+      .#{$property}#{$direction}-#{$suffix}-#{$breakpoint} {
+        #{$property-name}-#{$full-direction}: #{$size};
       }
     }
   }
@@ -56,8 +48,39 @@ $directions: (
 // Generate margin utility classes
 @include generate-spacing-classes('m', $directions, 'margin', $sizes);
 
+@include desktop {
+  @include generate-spacing-classes-responsive('m', $directions, 'margin', $sizes, 'dt');
+}
+
+@include tablet {
+  @include generate-spacing-classes-responsive('m', $directions, 'margin', $sizes, 'tb');
+}
+
+@include lgMobile {
+  @include generate-spacing-classes-responsive('m', $directions, 'margin', $sizes, 'lmb');}
+
+@include mobile {
+  @include generate-spacing-classes-responsive('m', $directions, 'margin', $sizes, 'mb');
+}
+
 // Generate padding utility classes
 @include generate-spacing-classes('p', $directions, 'padding', $sizes);
+
+@include desktop {
+  @include generate-spacing-classes-responsive('p', $directions, 'padding', $sizes, 'dt');
+}
+
+@include tablet {
+  @include generate-spacing-classes-responsive('p', $directions, 'padding', $sizes, 'tb');
+}
+
+@include lgMobile {
+  @include generate-spacing-classes-responsive('p', $directions, 'padding', $sizes, 'lmb');
+}
+
+@include mobile {
+  @include generate-spacing-classes-responsive('p', $directions, 'padding', $sizes, 'mb');
+}
 
 // Grid container
 .grid {
@@ -146,6 +169,10 @@ $directions: (
   @include generate-responsive-columns('tb');
 }
 
+@include lgMobile {
+  @include generate-responsive-columns('lmb');
+}
+
 @include mobile {
   @include generate-responsive-columns('mb');
 }
@@ -219,24 +246,29 @@ $gutters: (
   @include generate-responsive-gutters($gutters, 'col', 'row-gap', 'tb');
 }
 
+@include lgMobile {
+  @include generate-responsive-gutters($gutters, 'col', 'column-gap', 'lmb');
+  @include generate-responsive-gutters($gutters, 'col', 'row-gap', 'lmb');
+}
+
 @include mobile {
   @include generate-responsive-gutters($gutters, 'col', 'column-gap', 'mb');
   @include generate-responsive-gutters($gutters, 'col', 'row-gap', 'mb');
 }
 
-// Grid offset
 @mixin generate-offset-classes($breakpoint) {
   @for $i from 1 through 11 {
-    .g-os-#{$breakpoint}-#{$i} {
-      grid-column-start: $i + 1;
+    .g-os-#{$i}-#{$breakpoint} {
+      margin-left: (100% / 12 * $i);
     }
   }
 }
 
+
 // Default offset (without breakpoint)
 @for $i from 1 through 11 {
   .g-os-#{$i} {
-    grid-column-start: $i + 1;
+    margin-left: (100% / 12 * $i);
   }
 }
 
@@ -256,7 +288,7 @@ $gutters: (
 // Generate negative offset utility classes
 @mixin generate-negative-offset-classes($breakpoint) {
   @for $i from 1 through 11 {
-    .g-os-neg-#{$breakpoint}-#{$i} {
+    .g-os-neg-#{$i}-#{$breakpoint} {
       margin-left: -(100% / 12 * $i);
     }
   }
@@ -336,3 +368,4 @@ $text-sizes: (
 }
 
 @include generate-text-size-classes('font-size', $text-sizes);
+
