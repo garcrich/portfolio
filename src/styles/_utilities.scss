@@ -12,9 +12,28 @@
       .#{$property}#{$direction}-#{$suffix} {
         #{$property-name}-#{$full-direction}: #{$size};
       }
+
+      @include desktop {
+        .#{$property}#{$direction}-#{$suffix}-dt {
+          #{$property-name}-#{$full-direction}: #{$size};
+        }
+      }
+
+      @include tablet {
+        .#{$property}#{$direction}-#{$suffix}-tb {
+          #{$property-name}-#{$full-direction}: #{$size};
+        }
+      }
+
+      @include mobile {
+        .#{$property}#{$direction}-#{$suffix}-mb {
+          #{$property-name}-#{$full-direction}: #{$size};
+        }
+      }
     }
   }
 }
+
 
 $sizes: (
   '0': var(--sp-0),
