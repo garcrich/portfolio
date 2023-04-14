@@ -36,11 +36,11 @@ const Home: FC = () => {
       <NavBar />
       <main className={styles.contentContainer}>
           <Hero />
-          {/* <About />
+          <About />
           <Work />
           <EduAndCerts />
           <Recommendations />
-          <Contact /> */}
+          {/* <Contact /> */}
       </main>
       <Footer />
     </div>

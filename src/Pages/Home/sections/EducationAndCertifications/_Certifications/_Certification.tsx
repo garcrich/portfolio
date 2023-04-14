@@ -15,7 +15,7 @@ type CertificationProps = {
 const Certification: FC<CertificationProps> = ({ title, description, certification, idx }) => {
   let isEvenElem = idx % 2 === 0;
   return (
-    <div className={`grid ${idx !== 0 ? 'mt-xxxl mt-xxl-lmb' : 'mt-0 mt-lg-lmb'}`} data-testid="certification">
+    <div className={`grid ${idx !== 0 ? 'mt-xxxl' : 'mt-0 mt-lg-lmb'}`} data-testid="certification">
       <div className={`col-12 grid`}>
         
         <h4 className={`ft-clr-1 col-12 ${isEvenElem ? styles.txtAlgEven : styles.txtAlgOdd}`}>{title}</h4>
@@ -38,7 +38,7 @@ const Certification: FC<CertificationProps> = ({ title, description, certificati
             </p>
           </div>
           
-          <div className={`col-6 col-12-lmb mt-lg-lmb grid g-as-ctr g-js-ctr`}>
+          <div className={`col-6 col-12-lmb mt-md-lmb grid g-as-ctr g-js-ctr`}>
             <img 
               src={certification.img} 
               alt={title} 

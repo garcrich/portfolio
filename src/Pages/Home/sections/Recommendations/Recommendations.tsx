@@ -12,8 +12,11 @@ const Recommendations: FC = () => {
   const [slides, setSlides] = useState<RecommendationData[][]>([]);
 
   useEffect(() => {
-    setSlides(slideBuilder(2, recommendationsData));
-  }, []);
+    if(isTabletOrMobile)
+      setSlides(slideBuilder(1, recommendationsData));
+    else
+      setSlides(slideBuilder(2, recommendationsData));
+  }, [isTabletOrMobile]);
   return (
     <section className={`${styles.recommendationsSpacing}`} data-testid="recommendations" id="Recommendations">
       <h2 className={styles.title}>Endorsements from Industry Peers</h2>
