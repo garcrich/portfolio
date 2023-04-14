@@ -43,6 +43,7 @@ const NavBar = () => {
   return (
     <nav className={`${styles.navContainer}`} data-testid='navbar'>
       <ScrollLink
+        className={styles.logoLink}
         activeClass="active"
         to="Hero"
         smooth={true}

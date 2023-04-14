@@ -2,7 +2,7 @@
 .navContainer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   position: sticky; // Make the navbar sticky
   top: 0; // Stick the navbar to the top of the viewport
   background-color: #141e33;
@@ -10,13 +10,13 @@
   z-index: 1000; // Ensure the navbar stays above other content
   padding: 1rem 2rem;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
-  padding: 0rem 2rem 1rem;
+  padding: .8rem 2rem;
 }
 
 .mobileMenuIcon, .mobileMenuIconBar {
   display: none;
   width: 28px;
-  @include tablet {
+  @include tabletAndDown {
     display: block;
   }
 }
@@ -35,7 +35,7 @@
 }
 
 .mobileMenuIconBar { 
-  @include tablet {
+  @include tabletAndDown {
     background-color: var(--text-color-primary);
     border-radius: 4px;
     height: 0.25rem;
@@ -67,23 +67,26 @@
   &.underlayPosHolder {
     transform: translateX(0);
   }
-    @include tablet {
+    @include tabletAndDown {
     display: block;
   }
 }
 
 .mobileMenuButton {
   display: none;
-  @include tablet {
+  @include tabletAndDown {
     display: block;
   }
 }
 
 
-.logo {
-  margin-right: auto;
-  position: relative;
-  top: 3px;
-  max-height: 3.125rem;
-  cursor: pointer;
+.logoLink {
+  align-self: self-end;
+  .logo {
+    margin-right: auto;
+    position: relative;
+    max-height: 50px;
+    cursor: pointer;
+    top: 2px
+  }
 }

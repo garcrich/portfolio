@@ -25,29 +25,22 @@ const refAnimationProps = {
   },
 }
 
-const intersectionArgs = { rootMargin: '0% 0%', threshold: 0.30, once: true }
-const intersectionArgsEduCerts = { rootMargin: '0% 0%', threshold: 0.05, once: true }
+// const intersectionArgs = { rootMargin: '0% 0%', threshold: 0.30, once: true }
+// const intersectionArgsEduCerts = { rootMargin: '0% 0%', threshold: 0.05, once: true }
 
 
 const Home: FC = () => {
-  const [heroRef, springs] = useInView(() => (refAnimationProps), intersectionArgs)
-  const [aboutRef, aboutSprings] = useInView(() => (refAnimationProps), intersectionArgs)
-  const [workRef, workSprings] = useInView(() => (refAnimationProps), intersectionArgs)
-  const [eduRef, eduSprings] = useInView(() => (refAnimationProps), intersectionArgsEduCerts)
-  const [recRef, recSprings] = useInView(() => (refAnimationProps), intersectionArgs)
-  const [contactRef, contactSprings] = useInView(() => (refAnimationProps), intersectionArgs)
-
 
   return (
     <div data-testid='home'>
       <NavBar />
       <main className={styles.contentContainer}>
           <Hero />
-          <About />
+          {/* <About />
           <Work />
           <EduAndCerts />
           <Recommendations />
-          <Contact />
+          <Contact /> */}
       </main>
       <Footer />
     </div>
