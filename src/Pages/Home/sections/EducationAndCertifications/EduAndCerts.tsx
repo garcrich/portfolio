@@ -12,7 +12,7 @@ const EduAndCerts:FC = () => {
 
       <Education/>
 
-      <div className={`mt-xxxl`}>
+      {/* <div className={`mt-xxxl`}>
         <h3 className={`ft-clr-3 ${styles.certTitle}`}>Certifications</h3>
         {certifications.map((cert, idx) => (
           <Certification 
@@ -23,7 +23,7 @@ const EduAndCerts:FC = () => {
             idx={idx}
           />
         ))}
-      </div>
+      </div> */}
     </section>
   )
 }

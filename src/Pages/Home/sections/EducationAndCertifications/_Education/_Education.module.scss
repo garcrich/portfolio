@@ -1,11 +1,29 @@
 @import '../../../../../styles/mixins';
 .econDeg {
   border: 4px solid #a96f64;
-  width: 95%;
-  margin-top: 1rem;
+
+  width: 90%;
   margin-left: auto;
+
+  @include tablet {
+    width: 60%;
+  }
+  
+  @include tabletAndDown {
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  @include mobile {
+    max-width: 75%;
+  }
 }
 
 .title {
-  @include header-line(-12.5px, 300px, 140px, var(--text-color-tertiary));
+  @include header-line(-12.5px, 280px, 125px, var(--text-color-tertiary));
+  @include mobile {
+    @include header-line(-12.5px, 50%, 105px, var(--text-color-tertiary));
+  }
 }
