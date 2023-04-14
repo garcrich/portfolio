@@ -5,8 +5,10 @@
   margin-left:auto;
   &.isOdd {
     order: 1;
+    text-align: right;
     @include lgMobile {
       order: 0;
+      text-align: center;
     }
   }
 }
@@ -28,16 +30,17 @@
   width: 180px;
   text-align: center;
   color: var(--text-color-primary);
+  
+  &.pullLeft {
+    margin-left: auto;
+    @include lgMobile {
+      margin-left: auto;
+    }
+  }
 
   @include lgMobile {
     margin-right: auto;
     margin-left: auto;
-  }
-  &.pullLeft {
-    margin-left: 0;
-    @include lgMobile {
-      margin-left: auto;
-    }
   }
 }
 

@@ -31,7 +31,7 @@ const Certification: FC<CertificationProps> = ({ title, description, certificati
                 href={certification.verificationUrl}
                 rel="noreferrer"
                 target="_blank"
-                className={`button button-outline mt-md ${styles.certificationButton} ${isEvenElem && styles.marginLeft}`}
+                className={`button button-outline mt-md ${styles.certificationButton} ${!isEvenElem && styles.pullLeft}`}
               >
                 View certification
               </a>
@@ -42,7 +42,7 @@ const Certification: FC<CertificationProps> = ({ title, description, certificati
             <img 
               src={certification.img} 
               alt={title} 
-              className={`${styles.certImg} ${!isEvenElem ? 'col-12': 'col-12'}`} />
+              className={`${styles.certImg} col-12`} />
           </div>
         </div>
         </div>
