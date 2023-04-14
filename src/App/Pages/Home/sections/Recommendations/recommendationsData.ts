@@ -1,10 +1,10 @@
 import { RecommendationData } from "./recommendationTypes";
-import lanyeProfile from "./../../../../assets/images/recommendation-profiles/lane-profile.jpg";
-import zachProfile from "./../../../../assets/images/recommendation-profiles/zach-profile.jpg";
-import hamletProfile from "./../../../../assets/images/recommendation-profiles/hamlet-profile.jpg";
-import jasonProfile from "./../../../../assets/images/recommendation-profiles/jason-c-profile.jpg";
-import makaylaProfile from "./../../../../assets/images/recommendation-profiles/makayla-profile.jpg";
-import leeProfile from "./../../../../assets/images/recommendation-profiles/lee-profile.jpg";
+import lanyeProfile from "./../../../../../assets/images/recommendation-profiles/lane-profile.jpg";
+import zachProfile from "./../../../../../assets/images/recommendation-profiles/zach-profile.jpg";
+import hamletProfile from "./../../../../../assets/images/recommendation-profiles/hamlet-profile.jpg";
+import jasonProfile from "./../../../../../assets/images/recommendation-profiles/jason-c-profile.jpg";
+import makaylaProfile from "./../../../../../assets/images/recommendation-profiles/makayla-profile.jpg";
+import leeProfile from "./../../../../../assets/images/recommendation-profiles/lee-profile.jpg";
 
 const recommendationsData: RecommendationData[] = [
   {    name: 'Lanye Lund',

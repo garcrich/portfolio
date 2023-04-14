@@ -1,13 +1,30 @@
 import { FC } from 'react';
 import styles from './About.module.scss';
-import profile from '../../../../assets/images/profile.jpg';
+import profile from '../../../../../assets/images/profile.jpg';
 import TechList from './_TechList/_TechList';
 import techListData from './TechListData';
+import { animated, useInView } from '@react-spring/web';
+
+
 
 const About: FC = () => {
+  const [articleRef, articleSpring] = useInView(() => ({
+    from: { opacity: 0, transform: 'translateX(-10px)' },
+    to: { opacity: 1, transform: 'translateY(0px)' },
+    delay: 150,
+    config: { duration: 250 }
+  }), {rootMargin: '-40% 0%'})
+
+  const [imgRef, imageSpring] = useInView(() => ({
+    from: { opacity: 0, transform: 'translateX(10px)' },
+    to: { opacity: 1, transform: 'translateY(0px)' },
+    delay: 150,
+    config: { duration: 250 }
+  }), {rootMargin: '-40% 0%'})
+
   return (
     <section className={`${styles.container} grid section-spacing`} data-testid="about" id="About">
-      <div className={`col-6 col-12-tbd order-1-tbd`}>
+      <animated.article ref={articleRef} style={articleSpring} className={`col-6 col-12-tbd order-1-tbd`}>
         <h2 className={`${styles.title}`}>About Me</h2>
         <p>I'm a senior frontend engineer specializing in captivating digital experiences using technologies like React, TypeScript, and SCSS. My expertise extends to .NET environments and cloud computing.</p> 
         
@@ -25,14 +42,14 @@ const About: FC = () => {
           />
         ))}
         </ul>
-      </div>
-      <div className={`col-6 col-12-tbd order-0-tbd`}>
+      </animated.article>
+      <animated.div ref={imgRef} style={imageSpring} className={`col-6 col-12-tbd order-0-tbd`}>
       <div className={`${styles.aspectRatioWrapper}`}>
         <div className={`${styles.diamond} ml-dt`}>
           <img className={`${styles.profile}`} src={profile} alt="profile of Ricky Garcia" />
         </div>
       </div>
-      </div>
+      </animated.div>
     </section>
   )
 }

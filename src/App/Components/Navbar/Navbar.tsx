@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import logo from '../../assets/images/logo.svg'
+import logo from '../../../assets/images/logo.svg'
 import menuData from './MenuData';
 import styles from './Navbar.module.scss';
 import DesktopNav from './_DesktopNav/_DesktopNav';

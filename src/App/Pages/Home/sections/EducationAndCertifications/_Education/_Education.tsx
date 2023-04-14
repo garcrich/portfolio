@@ -1,5 +1,5 @@
 
-import econDegree from '../../../../../assets/images/econ-degree.jpg'
+import econDegree from '../../../../../../assets/images/econ-degree.jpg'
 import styles from './_Education.module.scss'
 
 const Education = () => {

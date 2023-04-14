@@ -1,7 +1,7 @@
 import { CertificationData } from "./EduAndCertsTypes"
-import devOpsImg from './../../../../assets/images/certifications/aws-certified-devops-engineer-professional.png'
-import devAscImg from './../../../../assets/images/certifications/aws-certified-developer-associate.png'
-import udacityImg from './../../../../assets/images/certifications/udacity-logo.png'
+import devOpsImg from './../../../../../assets/images/certifications/aws-certified-devops-engineer-professional.png'
+import devAscImg from './../../../../../assets/images/certifications/aws-certified-developer-associate.png'
+import udacityImg from './../../../../../assets/images/certifications/udacity-logo.png'
 export const certifications:CertificationData[] = [
   {
     title: 'AWS Certified DevOps Engineer Professional',

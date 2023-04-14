@@ -14,21 +14,6 @@ import { FC } from 'react';
 // import { useInView, animated } from '@react-spring/web'
 import styles from './Home.module.scss';
 
-// const refAnimationProps = {
-//   from: {
-//     opacity: 0,
-//     y: 50,
-//   },
-//   to: {
-//     opacity: 1,
-//     y: 0,
-//   },
-// }
-
-// const intersectionArgs = { rootMargin: '0% 0%', threshold: 0.30, once: true }
-// const intersectionArgsEduCerts = { rootMargin: '0% 0%', threshold: 0.05, once: true }
-
-
 const Home: FC = () => {
 
   return (

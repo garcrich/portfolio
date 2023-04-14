@@ -5,10 +5,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import './styles/styles.scss';
-import Home from './Pages/Home/Home';
+import './App/styles/styles.scss';
+import Home from './App/Pages/Home/Home';
+import ErrorPage from './App/Pages/ErrorPage/ErrorPage';
 import reportWebVitals from './reportWebVitals';
-import ErrorPage from './Pages/ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {

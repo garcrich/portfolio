@@ -59,6 +59,10 @@
   top: 4px;
 }
 
+.button {
+  display: inline-block;
+}
+
 @include tablet {
   .heroContainer {
     left: 0;
