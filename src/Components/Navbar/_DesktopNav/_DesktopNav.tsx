@@ -70,10 +70,11 @@ const DesktopNav:FC<DesktopNavProps> = ({menuItems}) => {
           activeClass={styles.active}
           to="Contact"
           smooth={true}
-          offset={-400}
+          offset={0}
           duration={500}
           spy={true}
           hashSpy={true}
+          
         >
           {menuItems.contact}
         </ScrollLink>

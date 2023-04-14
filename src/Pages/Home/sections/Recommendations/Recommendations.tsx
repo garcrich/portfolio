@@ -15,15 +15,15 @@ const Recommendations: FC = () => {
     setSlides(slideBuilder(2, recommendationsData));
   }, []);
   return (
-    <section className={`section-spacing mt-xxxl`} data-testid="recommendations" id="Recommendations">
+    <section className={`${styles.recommendationsSpacing}`} data-testid="recommendations" id="Recommendations">
       <h2 className={styles.title}>Endorsements from Industry Peers</h2>
-      {slides.length > 0 &&
         <Carousel
           emulateTouch={isTabletOrMobile ? true : false}
           showThumbs={false}
           showStatus={false}
           ariaLabel="Recommendations"
         >
+
           {slides.map((slide, index) => (
             <div key={index} className={`mt-md mb-xl ${styles.slide}`}>
               {slide.map((rec) => (
@@ -38,7 +38,6 @@ const Recommendations: FC = () => {
             </div>
           ))}
         </Carousel>
-      }
     </section>
   );
 };

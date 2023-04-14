@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styles from './Hero.module.scss'
 import HeroLogo from './HeroLogo'
 import { useInView } from '@react-spring/web'
+import { Link as ScrollLink } from 'react-scroll'
 
 const refAnimationProps = {
   from: {
@@ -35,7 +36,18 @@ const Header:FC = () => {
       
 
       <p className={`${styles.description} mt-sm`}>With a passion for creating accessible, high-performing websites and a knack for problem-solving, I thrive on turning innovative ideas into digital reality.</p>
-      <button className={`${styles.ctaButton} mt-md button`}>Learn About Me</button>
+        <ScrollLink 
+          className={`${styles.ctaButton} mt-md button`}
+          to="About"
+          activeClass={styles.active}
+          smooth={true}
+          offset={-120}
+          duration={500}
+          spy={true}
+          hashSpy={true}
+        >
+          Learn About Me
+        </ScrollLink>
     </div>
   </section>
   )
