@@ -60,6 +60,13 @@ The workflow is triggered on a push event to the `main` and `development` branch
   - Deploy the CloudFormation stack and S3 bucket
   - Print the website URL for the production environment
 
+## CloudFormation Templates
+
+This project uses AWS CloudFormation to automate the provisioning and deployment of the necessary AWS resources. Two separate CloudFormation templates are included: one for the development environment and one for the production environment. These templates are located in the `.cloudformation` directory:
+
+- `dev_stack.yml`: This template creates an S3 bucket for the development environment with server-side encryption enabled.
+- `prod_stack.yml`: This template creates an S3 bucket for the production environment with public read access and website hosting configuration. It also creates an S3 bucket policy to allow public access to the bucket's objects.
+
 ## Contributions
 
 Feel free to submit issues or pull requests if you find any bugs or have suggestions for improvements. Your contributions are always welcome! 🙂
