@@ -8,4 +8,10 @@
 
 .certTitle {
   @include header-line(-12.5px, 300px, 180px, var(--text-color-tertiary));
+  @include lgMobile {
+    @include header-line(-12.5px, 50%, 165px, var(--text-color-tertiary));
+  }
+  @include mobile {
+    @include header-line(-12.5px, 45%, 140px, var(--text-color-tertiary));
+  }
 }

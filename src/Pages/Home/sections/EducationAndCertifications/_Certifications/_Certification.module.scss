@@ -2,10 +2,13 @@
 
 .certificationDescriptionContainer {
   max-width: 450px;
-}
-
-.certTitleEven {
-  @include header-line(-12.5px, 300px, 140px, var(--text-color-tertiary));
+  margin-left:auto;
+  &.isOdd {
+    order: 1;
+    @include lgMobile {
+      order: 0;
+    }
+  }
 }
 
 .certificationDescription {
@@ -25,8 +28,35 @@
   width: 180px;
   text-align: center;
   color: var(--text-color-primary);
+
+  @include lgMobile {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  &.pullLeft {
+    margin-left: 0;
+    @include lgMobile {
+      margin-left: auto;
+    }
+  }
+}
+
+.txtAlgEven {
+  text-align: left;
+}
+
+.txtAlgOdd {
+  text-align: right;
+}
+
+@include lgMobile {
+  .txtAlgEven, .txtAlgOdd {
+    text-align: center;
+  }
 }
 
 .certImg {
   max-width: 200px;
+  margin: 0 auto;
 }
+
