@@ -35,6 +35,31 @@ This project uses React Testing Library for testing components. To run the tests
 1. Run `npm test` to execute the test suite.
 2. Press `a` to run all tests.
 
+## GitHub Workflow
+
+This project follows a standard GitHub workflow, which includes the use of GitHub Actions for continuous integration and deployment. The workflow is defined in a YAML file located in the `.github/workflows` folder called `deploy.app`.
+
+The workflow is triggered on a push event to the `main` and `development` branches.
+
+### Workflow Steps
+
+1. **Build the application**: This job builds the application, runs tests, and uploads the build artifacts. It uses the latest Ubuntu image and includes the following steps:
+
+  - Checkout code
+  - Set up Node.js
+  - Install dependencies
+  - Run tests
+  - Build
+  - Upload artifact
+
+2. **Deploy to Amazon S3**: This job deploys the application to Amazon S3. It requires the `build` job to be completed successfully and includes the following steps:
+
+  - Checkout code
+  - Download artifact
+  - Configure AWS credentials
+  - Deploy the CloudFormation stack and S3 bucket
+  - Print the website URL for the production environment
+
 ## Contributions
 
 Feel free to submit issues or pull requests if you find any bugs or have suggestions for improvements. Your contributions are always welcome! 🙂
