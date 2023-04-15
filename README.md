@@ -1,6 +1,7 @@
 # My Portfolio
 
-[Live Website](https://rickyggarcia.com/){:target="_blank"}
+<a href="https://rickyggarcia.com/" target="_blank">Visit Live Site</a>
+
 
 This repository contains the source code for my personal portfolio website. It showcases my work, education, certifications, and recommendations from colleagues. The site is built using React, TypeScript, SCSS modules, React Testing Library, and several other NPM modules (see `package.json` for the complete list).
 
