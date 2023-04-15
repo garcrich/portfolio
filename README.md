@@ -23,8 +23,8 @@ The focus of this project is responsive design, clean, modular code, and scalabl
 
 The project is structured with the following main components:
 
-- `Home`: The main container that holds all the sections.
 - `NavBar`: The navigation bar at the top of the page.
+- `Home`: The main container that holds all the sections.
 - `Hero`: The intro section with a brief introduction.
 - `About`: The about me section with a personal summary.
 - `Work`: The work experience section displaying professional history.
