@@ -12,9 +12,9 @@
 
 .tabList {
   display: flex;
-  cursor: pointer;
   gap: 16px;
   @include tabletAndDown {
+    padding-left: 0;
     flex-wrap: wrap;
     gap: 8px;
   }
