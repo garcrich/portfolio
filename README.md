@@ -1,8 +1,22 @@
 # My Portfolio
 
-This repository contains the source code for my personal portfolio website. It showcases my work, education, certifications, and recommendations from colleagues. The site is built using React, TypeScript, SCSS modules, React Testing Library, and several other NPM modules see `package.json` for complete list.
+[Live Website](https://rickyggarcia.com/)
 
-The focus of this project responsive design and clean, modular code, and scalabe architecture.
+This repository contains the source code for my personal portfolio website. It showcases my work, education, certifications, and recommendations from colleagues. The site is built using React, TypeScript, SCSS modules, React Testing Library, and several other NPM modules (see `package.json` for the complete list).
+
+The focus of this project is responsive design, clean, modular code, and scalable architecture.
+
+## Table of Contents
+
+- [My Portfolio](#my-portfolio)
+  - [Table of Contents](#table-of-contents)
+  - [Project Structure](#project-structure)
+  - [Usage](#usage)
+  - [Testing](#testing)
+    - [GitHub Actions Workflow](#github-actions-workflow)
+      - [Workflow Steps](#workflow-steps)
+  - [CloudFormation Templates](#cloudformation-templates)
+  - [Contributions](#contributions)
 
 ## Project Structure
 
@@ -35,13 +49,13 @@ This project uses React Testing Library for testing components. To run the tests
 1. Run `npm test` to execute the test suite.
 2. Press `a` to run all tests.
 
-## GitHub Workflow
+### GitHub Actions Workflow
 
 This project follows a standard GitHub workflow, which includes the use of GitHub Actions for continuous integration and deployment. The workflow is defined in a YAML file located in the `.github/workflows` folder called `deploy.app`.
 
 The workflow is triggered on a push event to the `main` and `development` branches.
 
-### Workflow Steps
+#### Workflow Steps
 
 1. **Build the application**: This job builds the application, runs tests, and uploads the build artifacts. It uses the latest Ubuntu image and includes the following steps:
 
@@ -58,8 +72,10 @@ The workflow is triggered on a push event to the `main` and `development` branch
   - Download artifact
   - Configure AWS credentials
   - Deploy the CloudFormation stack and S3 bucket
-  - Print the website URL for the production environment
+  - Sync the build directory to the S3 bucket
+  - Invalidate CloudFront cache (only for the `main` branch)
 
+After deployment, the website is accessible through the assigned URL for the production environment.
 ## CloudFormation Templates
 
 This project uses AWS CloudFormation to automate the provisioning and deployment of the necessary AWS resources. Two separate CloudFormation templates are included: one for the development environment and one for the production environment. These templates are located in the `.cloudformation` directory:
