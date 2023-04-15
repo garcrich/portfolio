@@ -2,6 +2,9 @@ Parameters:
   BucketName:
     Type: String
     Description: The name of the production S3 bucket
+  OriginAccessIdentityID:
+    Type: String
+    Description: The Origin access identitiy ID
 
 Resources:
   S3Bucket:
@@ -12,34 +15,28 @@ Resources:
       WebsiteConfiguration:
         IndexDocument: index.html
 
-  CloudFrontOAI:
-    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
-    Properties:
-      CloudFrontOriginAccessIdentityConfig:
-        Comment: "OAI for accessing the S3 bucket"
-
   S3BucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
       Bucket: !Ref S3Bucket
       PolicyDocument:
-        Version: "2012-10-17"
+        Version: '2012-10-17'
         Statement:
           - Effect: Allow
             Action:
-              - "s3:GetObject"
-            Resource: !Sub "arn:aws:s3:::${S3Bucket}/*"
+              - 's3:GetObject'
+            Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
             Principal:
               AWS:
-                - !Sub "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CloudFrontOAI}"
+                - !Sub 'arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${OriginAccessIdentityID}'
+
+  CloudFrontOAI:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: 'OAI for accessing the S3 bucket'
 
 Outputs:
   S3BucketName:
-    Description: "The name of the S3 bucket"
+    Description: 'The name of the S3 bucket'
     Value: !Ref S3Bucket
-  WebsiteURL:
-    Description: "The URL of the website"
-    Value: !GetAtt S3Bucket.WebsiteURL
-  CloudFrontOAI:
-    Description: "The ID of the CloudFront Origin Access Identity"
-    Value: !Ref CloudFrontOAI

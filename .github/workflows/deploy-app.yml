@@ -61,7 +61,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
-          role-to-assume: arn:aws:iam::195789042358:role/GitHubActions
+          role-to-assume: ${{ secrets.GH_ACTIONS_ARN }}
           role-duration-seconds: 1800
           aws-region: ${{ env.AWS_REGION }}
 
@@ -77,27 +77,38 @@ jobs:
             TEMPLATE_NAME=dev_stack.yml
           fi
 
-          # Create or update the CloudFormation stack
+          # Set the OAI_ID based on the current branch
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            OAI_ID=${{ secrets.OAI_ID }}
+          else
+            OAI_ID=""
+          fi
+
+          # Create or update the CloudFormation stack with the certificate ARN parameter
           aws cloudformation deploy \
             --stack-name "${DEPLOY_NAME}" \
             --template-file "${{ github.workspace }}/.cloudformation/${TEMPLATE_NAME}" \
-            --parameter-overrides BucketName="${DEPLOY_NAME}" \
+            --parameter-overrides BucketName="${DEPLOY_NAME}" OriginAccessIdentityID="${OAI_ID}" \
             --no-fail-on-empty-changeset \
             --region "${AWS_REGION}"
 
           # Sync the build directory to the S3 bucket
           aws s3 sync build/ s3://${DEPLOY_NAME} --delete
 
-          # TODO: Generate pre-signed URL for the development environment
-          # Generate pre-signed URL for the development environment
-          # if [[ "${{ github.ref }}" == "refs/heads/development" ]]; then
-          #   presigned_url=$(aws s3 presign s3://${DEPLOY_NAME}/index.html --expires-in 1800)
-          #   echo "Pre-signed URL: ${presigned_url}"
-          # fi
+      - name: Invalidate CloudFront cache
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
 
-          # Print Website URL for production environment
-          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            stack_output=$(aws cloudformation describe-stacks --stack-name "${DEPLOY_NAME}")
-            website_url=$(echo "${stack_output}" | jq -r '.Stacks[0].Outputs[] | select(.OutputKey=="WebsiteURL") | .OutputValue')
-            echo "Website URL: ${website_url}"
-          fi
+          # Get the CloudFront distribution ID from secrets
+          DISTRIBUTION_ID=${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+
+          # Create a new invalidation for all files in the distribution
+          INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION_ID}" --paths "/*" | jq -r '.Invalidation.Id')
+
+          # Wait for the invalidation to complete
+          while [[ "$(aws cloudfront get-invalidation --distribution-id "${DISTRIBUTION_ID}" --id "${INVALIDATION_ID}" | jq -r '.Invalidation.Status')" != "Completed" ]]; do
+            sleep 10
+          done
+
+          # Print a message indicating that the invalidation is complete
+          echo "CloudFront invalidation complete (InvalidationId: ${INVALIDATION_ID}) We deployed to production!"
