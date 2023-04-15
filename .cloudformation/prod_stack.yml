@@ -8,7 +8,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Ref BucketName
-      AccessControl: PublicRead
+      AccessControl: Private
       WebsiteConfiguration:
         IndexDocument: index.html
 
@@ -23,7 +23,15 @@ Resources:
             Action:
               - 's3:GetObject'
             Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
-            Principal: '*'
+            Principal:
+              AWS:
+                - !Sub 'arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CloudFrontOAI}'
+
+  CloudFrontOAI:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: 'OAI for accessing the S3 bucket'
 
 Outputs:
   S3BucketName:
