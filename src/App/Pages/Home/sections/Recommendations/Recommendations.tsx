@@ -34,7 +34,7 @@ const Recommendations: FC = () => {
     <animated.section ref={recommendationsRef} style={recommendationsSpring} className={`${styles.recommendationsSpacing}`} data-testid="recommendations" id="Recommendations">
       <h2 className={styles.title}>Endorsements from Industry Peers</h2>
         <Carousel
-          emulateTouch={isTabletOrMobile ? true : false}
+          emulateTouch={false}
           showThumbs={false}
           showStatus={false}
           ariaLabel="Recommendations"
