@@ -79,16 +79,16 @@ jobs:
 
           # Set the OAI_ID based on the current branch
           if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
-            OAI_ID=${{ secrets.OAI_ID }}
+            CLOUDFRONT_DISTRIBUTION_ID=${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
           else
-            OAI_ID=""
+            CLOUDFRONT_DISTRIBUTION_ID=""
           fi
 
           # Create or update the CloudFormation stack with the certificate ARN parameter
           aws cloudformation deploy \
             --stack-name "${DEPLOY_NAME}" \
             --template-file "${{ github.workspace }}/.cloudformation/${TEMPLATE_NAME}" \
-            --parameter-overrides BucketName="${DEPLOY_NAME}" OriginAccessIdentityID="${OAI_ID}" \
+            --parameter-overrides BucketName="${DEPLOY_NAME}" CLOUDFRONT_DISTRIBUTION_ID="${CLOUDFRONT_DISTRIBUTION_ID}" \
             --no-fail-on-empty-changeset \
             --region "${AWS_REGION}"
 
