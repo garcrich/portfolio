@@ -6,10 +6,15 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding: 2rem;
   height: calc(100vh - 4rem); // Adjust for padding and navbar height
   background-color: var(--background-color-primary);
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.65)), url("../../../../../assets/images/SLC-Hero.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--text-color-primary);
+  @include tablet {
+    background-position: center;
+  }
 }
 
 .contentContainer {

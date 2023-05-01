@@ -19,8 +19,8 @@ const Home: FC = () => {
   return (
     <div data-testid='home'>
       <NavBar />
+      <Hero />
       <main className={styles.contentContainer}>
-          <Hero />
           <About />
           <Work />
           <EduAndCerts />

@@ -1,6 +1,7 @@
 @import "../../../../styles/mixins";
 
 .container {
+  
   p {
     margin-top: var(--sp-md);
   }
@@ -17,7 +18,6 @@
 .title {
   font-size: 2rem;
   margin-bottom: 1rem;
-  // @include header-line(-16px, 50%, 170px, var(--text-color-primary));
 }
 
 .techHeader {
@@ -38,7 +38,7 @@
 
 .aspectRatioWrapper {
   position: relative;
-  padding-bottom: 100%; // Control the aspect ratio here (e.g., use '75%' for a 4:3 aspect ratio)
+  padding-bottom: 100%;
   height: 0;
   overflow: hidden;
   display: flex;

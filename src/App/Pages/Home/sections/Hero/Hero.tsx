@@ -4,7 +4,6 @@ import HeroLogo from './HeroLogo'
 import { Link as ScrollLink } from 'react-scroll'
 import useCustomSpring from './useReactSpring'
 import { animated, useSpring } from '@react-spring/web'
-
 const delay = 120
 
 const Header: FC = () => {
