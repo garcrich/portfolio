@@ -18,7 +18,10 @@ const MobileNav: FC<MobileNavProps> = ({ menuItems, isMobileMenuOpen, setIsMobil
 
   return (
     <div data-testid='mobile-menu-container' className={`${styles.mobileMenuContainer} ${isMobileMenuOpen && styles.isMobileMenuOpen}`}>
-      <button className={styles.closeButton} onClick={() => setIsMobileMenuOpen(false)} data-testid='close-button'>
+      <button 
+      className={styles.closeButton} 
+      aria-label='clouse mobile menu button'
+      onClick={() => setIsMobileMenuOpen(false)} data-testid='close-button'>
         <span className={styles.closeIcon}></span>
       </button>
 
