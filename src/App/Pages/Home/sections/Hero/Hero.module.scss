@@ -15,6 +15,9 @@
   @include tablet {
     background-position: center;
   }
+  @include mobile {
+    padding: 1rem;
+  }
 }
 
 .contentContainer {

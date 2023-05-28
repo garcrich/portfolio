@@ -28,7 +28,7 @@ const Header: FC = () => {
 
 
   return (
-    <section className={styles.heroContainer} data-testid="hero" id="Hero">
+    <section className={`${styles.heroContainer}`} data-testid="hero" id="Hero">
 
       <div className={styles.contentContainer}>
 
