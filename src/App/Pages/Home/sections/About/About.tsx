@@ -45,7 +45,7 @@ const About: FC = () => {
       <animated.div ref={imgRef} style={imageSpring} className={`col-6 col-12-tbd order-0-tbd`}>
       <div className={`${styles.aspectRatioWrapper}`}>
         <div className={`${styles.diamond} ml-dt`}>
-          <img className={`${styles.profile}`} src={profile} alt="profile of Ricky Garcia" />
+          <img loading='lazy' className={`${styles.profile}`} src={profile} alt="profile of Ricky Garcia" />
         </div>
       </div>
       </animated.div>
