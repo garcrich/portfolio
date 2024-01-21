@@ -11,12 +11,16 @@ const techListData: TechListData[] = [
   },
   {
     title: 'Cloud',
-    items: ['Azure', 'AWS', 'Jenkins'],
+    items: ['Azure', 'AWS'],
   },
   {
     title: 'Mobile',
     items: ['Swift', 'SwiftUI']
   },
+  {
+    title: 'CI/CD',
+    items: ['Github actions', 'Docker','Jenkins']
+  }
 ];
 
 export default techListData;
