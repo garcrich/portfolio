@@ -6,6 +6,16 @@ type WorkHistory = {
 }
 const workHistory: WorkHistory[] = [
   {
+    company: 'Fidelity',
+    position: 'Principle Engineer',
+    description: [
+      "Leading web and mobile development teams at Fidelity",
+      "focusing on engineering excellence and Agile methodologies",
+      "Utilizing Confluence and JIRA for project management." ,
+      "Mentoring developers, overseeing seamless onboarding,"
+    ]
+  },
+  {
     company: 'Vyne Dental',
     position: 'Senior Software Engineer',
     description: [

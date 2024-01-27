@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from './About.module.scss';
 import profile from '../../../../../assets/images/profile.jpg';
 import TechList from './_TechList/_TechList';
-import techListData from './TechListData';
+import techListData from './_TechList/TechListData';
 import { animated, useInView } from '@react-spring/web';
 import { globalToSectionTranslateX1, globalToSectionTranslateX2, globalToSectionTranslateX3, globalToSectionTranslateX4, gobalSectionDelay, gobalSectionDuration, GobalSectionRootMargin, } from '../../../_utilities/animationConfigs';
 
