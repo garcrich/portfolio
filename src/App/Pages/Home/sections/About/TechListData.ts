@@ -7,11 +7,11 @@ const techListData: TechListData[] = [
   },
   {
     title: 'Backend',
-    items: ['NodeJS', 'ExpressJS', '.NET Core', '.Net MVC', 'Entity', 'Razor', 'C#'],
+    items: ['NodeJS', 'ExpressJS', '.NET Core', 'C#'],
   },
   {
     title: 'Cloud',
-    items: ['Azure', 'AWS'],
+    items: ['AWS', 'Azure'],
   },
   {
     title: 'Mobile',
@@ -20,6 +20,10 @@ const techListData: TechListData[] = [
   {
     title: 'CI/CD',
     items: ['Github actions', 'Docker','Jenkins']
+  },
+  {
+    title: 'Other',
+    items: ['Technical Documentation', 'System Diagramming', 'Sprint Planning']
   }
 ];
 
