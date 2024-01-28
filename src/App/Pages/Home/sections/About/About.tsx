@@ -22,7 +22,7 @@ const About: FC = () => {
   }), {rootMargin: GobalSectionRootMargin})
 
   return (
-    <section className={`${styles.container} grid section-spacing mt-xl-dt`} data-testid="about" id="About">
+    <section className={`${styles.container} grid section-spacing mt-xxl-dt`} data-testid="about" id="About">
       <animated.article ref={articleRef} style={articleSpring} className={`col-6 col-12-tbd order-1-tbd`}>
         <h2 className={`${styles.title}`}>About Me</h2>
         <p>I'm a senior frontend engineer specializing in captivating digital experiences using technologies like React, TypeScript, and SCSS. My expertise extends to .NET environments and cloud computing.</p> 
