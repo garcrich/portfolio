@@ -8,7 +8,7 @@ const Education = () => {
     <h3 className={`${styles.title} ft-clr-3`}>Education</h3>
       <div className={`grid`}>
         <div className='col-12'>
-          <h4 className='mb-xs'>Bachelor of Science (BS), Computer Science</h4>
+          <h4 className='mb-xs'>Bachelors of Economics</h4>
           <h5 className='mt-0'>Idaho State University, 2012 - 2016</h5>
         </div>
         <div className='col-6 col-12-tbd mt-xs'>
