@@ -1,3 +1,5 @@
+@import '../../../../../styles/mixins';
+
 .recommendationContainer {
   flex-basis: 45%;
   
@@ -11,5 +13,13 @@
       margin: 0 auto;
       max-width: 40%;
     }
+  }
+
+  @include tablet {
+    flex-basis: 50%;
+  }
+
+  @include mobile {
+    flex-basis: 80%;
   }
 }
