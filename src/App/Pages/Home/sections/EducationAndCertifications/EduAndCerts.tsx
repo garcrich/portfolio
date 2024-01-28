@@ -13,7 +13,11 @@ const EduAndCerts:FC = () => {
     to: { opacity: 1, transform: gobalToSectionTranslateY },
     delay: gobalSectionDelay,
     config: { duration: gobalSectionDuration }
-  }), {rootMargin: GobalSectionRootMargin})
+  }), 
+  {
+    rootMargin: GobalSectionRootMargin,
+    once: true
+  })
   
   return (
     <animated.section style={eduCertSpring} ref={eduCertRef} className={`section-spacing ${styles.eduCertsContainer}`}  data-testid="edu-and-certs" id="EduAndCerts">

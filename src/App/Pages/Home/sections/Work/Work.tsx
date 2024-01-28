@@ -14,7 +14,12 @@ const Work: FC = () => {
     to: { opacity: 1, transform: gobalToSectionTranslateY },
     delay: gobalSectionDelay,
     config: { duration: gobalSectionDuration }
-  }), {rootMargin: GobalSectionRootMargin})
+  }), 
+  {
+    rootMargin: GobalSectionRootMargin,
+    once: true
+  }
+  )
 
 
   return (

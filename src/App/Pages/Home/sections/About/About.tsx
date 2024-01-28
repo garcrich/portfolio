@@ -11,15 +11,23 @@ const About: FC = () => {
     from: { opacity: 0, transform: globalToSectionTranslateX1 },
     to: { opacity: 1, transform: globalToSectionTranslateX2 },
     delay: gobalSectionDelay,
-    config: { duration: gobalSectionDuration }
-  }), {rootMargin: GobalSectionRootMargin})
+    config: { duration: gobalSectionDuration },
+  }), 
+  {
+    rootMargin: GobalSectionRootMargin,
+    once: true
+  })
 
   const [imgRef, imageSpring] = useInView(() => ({
     from: { opacity: 0, transform: globalToSectionTranslateX3 },
     to: { opacity: 1, transform: globalToSectionTranslateX4 },
     delay: gobalSectionDelay,
-    config: { duration: gobalSectionDuration }
-  }), {rootMargin: GobalSectionRootMargin})
+    config: { duration: gobalSectionDuration },
+  }), 
+  {
+    rootMargin: GobalSectionRootMargin,
+    once: true
+  })
 
   return (
     <section className={`${styles.container} grid section-spacing mt-xxl-dt`} data-testid="about" id="About">
