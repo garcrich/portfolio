@@ -22,7 +22,7 @@
 }
 
 .title {
-  @include header-line(-12.5px, 280px, 125px, var(--text-color-tertiary));
+  @include header-line(-15.5px, 280px, 135px, var(--text-color-tertiary));
   @include mobile {
     @include header-line(-12.5px, 50%, 105px, var(--text-color-tertiary));
   }
