@@ -6,8 +6,9 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  height: calc(100vh - 4rem); // Adjust for padding and navbar height
+  height: calc(100vh); // Adjust for padding and navbar height
   background-color: var(--background-color-primary);
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5)), url("../../../../../assets/images/slc-background-low-res.jpg");
   background:linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5)), url("../../../../../assets/images/slc-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
