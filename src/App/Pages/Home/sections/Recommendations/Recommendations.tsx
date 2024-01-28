@@ -21,7 +21,11 @@ const Recommendations: FC = () => {
       delay: gobalSectionDelay,
       config: { duration: gobalSectionDuration }
     });
-  }, {rootMargin: GobalSectionRootMargin})
+  }, 
+  {
+    rootMargin: GobalSectionRootMargin,
+    once: true
+  })
 
   useEffect(() => {
     if(isTabletOrMobile)
