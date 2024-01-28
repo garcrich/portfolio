@@ -7,9 +7,13 @@
   right: -100%;
   height: 100%;
   z-index: 20;
+  background-color: var(--nav-and-ft-bg-clr);
   overflow-y: scroll;
   transition: right 0.5s ease-in-out;
   overflow: hidden;
+  ul {
+    padding-left: 0;
+  }
   li {
     cursor: pointer;
     font-size: 1.25rem;
