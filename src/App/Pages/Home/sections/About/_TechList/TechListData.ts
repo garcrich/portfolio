@@ -3,7 +3,7 @@ import { TechListData } from "../AboutTypes";
 const techListData: TechListData[] = [
   {
     title: 'Frontend',
-    items: ['TypeScript', 'React', 'Vue', 'SCSS', 'Webpack', 'Jest'],
+    items: ['TypeScript', 'React', 'Vue', 'Angular', 'SCSS', 'Webpack', 'Jest'],
   },
   {
     title: 'Backend',
