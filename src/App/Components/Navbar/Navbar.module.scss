@@ -2,7 +2,7 @@
 .navContainer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   position: sticky; 
   top: 0;
   background-color: var(--nav-and-ft-bg-clr);
