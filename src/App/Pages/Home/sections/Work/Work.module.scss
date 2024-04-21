@@ -13,8 +13,8 @@
 .tabList {
   display: flex;
   gap: 16px;
+  padding-left: 0;
   @include tabletAndDown {
-    padding-left: 0;
     flex-wrap: wrap;
     gap: 8px;
   }
