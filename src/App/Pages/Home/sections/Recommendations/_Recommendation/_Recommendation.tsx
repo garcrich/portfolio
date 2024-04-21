@@ -12,7 +12,10 @@ const Recommendation: FC<RecommendationProps> = ({ name, title, text, img })  =>
     </div>
     <div className={styles.body}>
       {text.map((paragraph, index) => (
-        <blockquote key={`${index}_${paragraph.slice(0,5)}`}>{paragraph}</blockquote>
+        <blockquote 
+          key={`${index}_${paragraph.slice(0,5)}`}
+          className={`text-md`}
+        >{paragraph}</blockquote>
       ))}
     </div>
   </div>
